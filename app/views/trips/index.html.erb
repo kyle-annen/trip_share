@@ -1,6 +1,6 @@
 <h1><%= current_user.email %>'s Trips</h1>
 
-<br>
+
 <!-- start pagination -->
 <div class="pagination-box">
   <p></p>
@@ -8,10 +8,19 @@
 </div><br>
 <!-- end pagination -->
 
+<div class="clearfix"></div>
+<% @trips.each do |trip| %>
+  <div class="col-md-3 trip-list-tile">
+    <%= link_to image_tag(trip.image.url(:medium), :class => "img-responsive tile-image"), Trip.find(trip.id) %>
+    <p><h4 class="text-shadow"><%= trip.name %></h4></p>
+  </div>
+<% end %>
+  
+
+<div class="clearfix"></div>
 
 <!-- start pagination -->
 <div class="pagination-box">
-  <p></p>
   <%= will_paginate @trips, renderer: BootstrapPagination::Rails  %>
 </div>
 <!-- end pagination -->
