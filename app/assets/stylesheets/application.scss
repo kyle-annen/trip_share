@@ -67,7 +67,7 @@
 }
 
 .tile-image {
-  margin-top: -10px; 
+  min-width: 800px; 
 }
 
 .text-shadow {
@@ -88,13 +88,38 @@
   position: absolute; 
   top: 20px; 
   left: 15px; 
-  width: 100%; 
+  width: auto; 
+  max-width: 60%;
+}
+
+.tile-blurb{
+  position: absolute;
+  top: 145px;
+  left: 15px;
+  width: auto;
+  max-width: 80%;
+}
+
+.tile-cost{
+  position: absolute;
+  top: 80px;
+  left: 15px;
+  width: auto;
 }
 
 .grey-background{ 
   color: white; 
-  font: bold 24px/45px Helvetica, Sans-Serif; 
+  font: bold 24px/55px Helvetica, Sans-Serif; 
   background: rgb(0, 0, 0); /* fallback color */
-  background: rgba(0, 0, 0, 0.7);
-  padding: 10px 20px 10px 5px; 
+  background: rgba(0, 0, 0, 0.5);
+  padding: 0 20px 0 20px; 
 }
+
+.blurb-text {
+  font: bold 20px/35px Helevetica, Sans-Serif;
+  color: white; 
+  background: rgb(0, 0, 0); /* fallback color */
+  background: rgba(0, 0, 0, 0.5);
+  padding: 0px 25px 0px 20px; 
+}
+ 
