@@ -10,4 +10,6 @@ class Trip < ActiveRecord::Base
   validates :name, presence: true
   validates :user_id, presence: true
   validates :image, presence: true
+  validates :blurb, presence: true
+   
 end

@@ -7,15 +7,25 @@
   <%= will_paginate @trips, renderer: BootstrapPagination::Rails  %>
 </div><br>
 <!-- end pagination -->
+<div class="tile-container">
 
-<div class="clearfix"></div>
-<% @trips.each do |trip| %>
-  <div class="col-md-3 trip-list-tile">
-    <%= link_to image_tag(trip.image.url(:medium), :class => "img-responsive tile-image"), Trip.find(trip.id) %>
-    <p><h4 class="text-shadow"><%= trip.name %></h4></p>
-  </div>
-<% end %>
-  
+  <div class="clearfix"></div>
+  <% @trips.each do |trip| %>
+    <div class="col-md-4 trip-list-tile pull-left text-over-image">
+      <%= link_to image_tag(trip.image.url, :class => "img-responsive tile-image"), Trip.find(trip.id) %>
+      
+      <!-- Title for the tile -->
+      <h3 class="tile-title"><span class="grey-background">
+          <%= trip.name %></span>
+      </h3>
+      <!-- Blurb for the tile -->
+
+      <!-- Cost for the tile -->
+
+    </div>
+  <% end %>
+</div>
+
 
 <div class="clearfix"></div>
 
