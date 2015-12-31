@@ -1,0 +1,18 @@
+<h1><%= current_user.email %>'s Trips</h1>
+
+<br>
+<!-- start pagination -->
+<div class="pagination-box">
+  <p></p>
+  <%= will_paginate @trips, renderer: BootstrapPagination::Rails  %>
+</div><br>
+<!-- end pagination -->
+
+
+<!-- start pagination -->
+<div class="pagination-box">
+  <p></p>
+  <%= will_paginate @trips, renderer: BootstrapPagination::Rails  %>
+</div>
+<!-- end pagination -->
+
