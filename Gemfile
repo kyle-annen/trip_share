@@ -25,8 +25,14 @@ gem 'devise'
 gem 'bootstrap-sass', '~> 3.3.6'
 # Use paperclip for image upload
 gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
+
+# Gems used in pagination, consider changing to Kaminari
 gem 'will_paginate'
 gem 'will_paginate-bootstrap'
+
+# React.js integration gem
+gem 'react-rails', '~> 1.5.0'
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
