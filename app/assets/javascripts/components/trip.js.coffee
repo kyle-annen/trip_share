@@ -8,13 +8,10 @@
   render: ->
     React.DOM.div
       className: 'container'
-      React.DOM.table
-        className: 'table'
-      React.DOM.thead null,
-        React.DOM.tr null,
-          React.DOM.th null, 'Name'
-          React.DOM.th null, 'Blurb'
-          React.DOM.th null, 'Cost'
-      React.DOM.tr null,
-        React.DOM.td null, @props.trip.name
-        React.DOM.td null, @props.trip.cost
+      React.DOM.span null,
+        React.DOM.h2 null,
+          @props.data.name
+        React.DOM.h3 null,
+          "$ ".concat(parseFloat(@props.data.cost).toFixed(2))
+        React.DOM.h3 null,
+          @props.data.blurb

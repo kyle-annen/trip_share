@@ -1,2 +1,7 @@
+<div class="container">
+  <div class="trip-page-image">
+    <%= image_tag @trip.image.url(:medium) %>
+  </div>
+</div>
 <%= react_component 'Trip', {data: @trip} %>
 
