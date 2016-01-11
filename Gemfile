@@ -31,7 +31,10 @@ gem 'will_paginate'
 gem 'will_paginate-bootstrap'
 
 # React.js integration gem
-gem 'react-rails', '~> 1.5.0'
+gem 'react-rails', github: 'reactjs/react-rails'
+  
+
+
 
 
 # Use ActiveModel has_secure_password

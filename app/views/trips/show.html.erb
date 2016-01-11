@@ -1,2 +1,2 @@
-<h1><%= @trip.name %></h1>
-<%= image_tag @trip.image.url(:medium) %>
+<%= react_component 'Trip', {data: @trip} %>
+
