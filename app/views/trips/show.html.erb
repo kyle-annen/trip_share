@@ -1,7 +1,7 @@
 <div class="container">
-  <div class="trip-page-image">
+  <div class="trip-page-image pull-left">
     <%= image_tag @trip.image.url(:medium) %>
   </div>
+  <%= react_component 'Trip', {data: @trip} %>
 </div>
-<%= react_component 'Trip', {data: @trip} %>
 

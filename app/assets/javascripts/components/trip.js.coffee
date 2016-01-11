@@ -7,7 +7,7 @@
     trip: []
   render: ->
     React.DOM.div
-      className: 'container'
+      className: 'pull-left'
       React.DOM.span null,
         React.DOM.h2 null,
           @props.data.name
