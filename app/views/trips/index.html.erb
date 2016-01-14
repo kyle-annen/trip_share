@@ -1,4 +1,6 @@
-<h1><%= current_user.email %>'s Trips</h1>
+<div class="container">
+  <h1><%= current_user.email %>'s Trips</h1>
+</div>
 
 
 <!-- start pagination -->
@@ -13,7 +15,7 @@
   <% @trips.each do |trip| %>
     <div class="col-md-4 trip-list-tile pull-left text-over-image">
       <%= link_to image_tag(trip.image.url, :class => "img-responsive tile-image"), Trip.find(trip.id) %>
-      
+
       <!-- Title for the tile -->
       <h3 class="tile-title"><div class="grey-background">
           <%= trip.name %></div>
