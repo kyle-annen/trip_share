@@ -6,7 +6,7 @@ Modal = ReactBootstrap.Modal
 Popover = ReactBootstrap.Popover
 Tooltip = ReactBootstrap.Tooltip
 Input = ReactBootstrap.Input
-ButtonInput = React.Bootstrap.ButtonInput
+ButtonInput = ReactBootstrap.ButtonInput
 
 
 #@TripButtonBar = React.createClass
@@ -37,13 +37,14 @@ ButtonInput = React.Bootstrap.ButtonInput
         </Modal.Header>
         <Modal.Body> 
           <form>
-            <Input
+            <Input type="text" label="Search By Zipcode" placeholder="Zipcode" buttonAfter={
+              <ButtonInput type="submit" value="Search Location" bsStyle="primary" />} />
+          </form>
         </Modal.Body>
         <Modal.Footer>
           <Button onClick={this.close}>Add</Button>
         </Modal.Footer>
       </Modal>
-
     </div>`
         
 
