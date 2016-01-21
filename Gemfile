@@ -32,6 +32,8 @@ gem 'will_paginate-bootstrap'
 
 # React.js integration gem
 gem 'react-rails', github: 'reactjs/react-rails'
+gem 'react-bootstrap-rails'
+
   
 
 

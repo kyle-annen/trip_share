@@ -1,22 +1,20 @@
-<div class="container">
-  <h1>Start a New Trip</h1>
+<h1>Start a New Trip</h1>
 
-  <div class="row">
-    <div class ="col-md-6 col-md-offset-3">
-      <%= form_for(@trip) do |f| %>
-        <%= render 'shared/error_messages' %>
+<div class="row">
+  <div class ="col-md-6 col-md-offset-3">
+    <%= form_for(@trip) do |f| %>
+      <%= render 'shared/error_messages' %>
 
-        <%= f.label :Trip %><br>
-        <%= f.text_field :name, class: 'form-control' %><br><br>
-        
-        <%= f.label :Blurb %><br>
-        <%= f.text_field :blurb, class: 'form-control' %><br><br>
+      <%= f.label :Trip %><br>
+      <%= f.text_field :name, class: 'form-control' %><br><br>
 
-        <%= f.label :Image %>
-        <%= f.file_field :image, class: 'form-control' %><br><br>
+      <%= f.label :Blurb %><br>
+      <%= f.text_field :blurb, class: 'form-control' %><br><br>
 
-        <%= f.submit "Create Trip", class: "btn btn-primary" %>
-      <% end %>
-    </div>
+      <%= f.label :Image %>
+      <%= f.file_field :image, class: 'form-control' %><br><br>
+
+      <%= f.submit "Create Trip", class: "btn btn-primary" %>
+    <% end %>
   </div>
 </div>

@@ -1,7 +1,8 @@
-<div class="container">
-  <div class="trip-page-image pull-left">
-    <%= image_tag @trip.image.url(:medium) %>
-  </div>
-  <%= react_component 'Trip', {data: @trip} %>
+<div class="trip-page-image pull-left">
+  <%= image_tag @trip.image.url(:medium) %>
 </div>
+<%= react_component 'Trip', {data: @trip} %>
+<div class="clearfix"></div>
+<br/>
+<%= react_component 'TripButtonBar'%>
 
