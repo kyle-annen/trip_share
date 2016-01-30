@@ -134,3 +134,22 @@
   min-width: 100px;
 }
 
+
+//trip edit accordian
+
+#accordion {
+  padding-top: 5px;
+}
+
+.accordion-toggle {
+  cursor: pointer;
+}
+
+.accordion-content {
+  display: none;
+}
+
+.accordion-content.default {
+  display: block;
+}
+
