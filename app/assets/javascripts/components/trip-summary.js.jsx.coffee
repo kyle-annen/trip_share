@@ -1,4 +1,4 @@
-@Trip = React.createClass
+@TripSummary = React.createClass
   getInitialState: ->
     trip: @props.data
   getDefaultProps:->

@@ -1,8 +1,48 @@
 <div class="trip-page-image pull-left">
   <%= image_tag @trip.image.url(:medium) %>
 </div>
-<%= react_component 'Trip', {data: @trip} %>
-<div class="clearfix"></div>
-<br/>
-<%= react_component 'TripButtonBar'%>
 
+<%= react_component 'TripSummary', {data: @trip} %>
+
+<div class="clearfix"></div>
+<br/> 
+<%= react_component 'TripList', {data: @trip_locations} %>
+
+
+
+<!--
+<br/>
+<br/>
+<br/>
+<br/>
+<div id='input'>
+  <Input id='gmaps-input-address' placeholder='Start typing a place name...' type='text' />
+  <br/>
+  <br/>
+  Latitude: <span id='gmaps-output-latitude'></span>
+  <br/>
+  Longitude: <span id='gmaps-output-longitude'></span>
+  <br/>
+
+  <div id='gmaps-error'></div>
+</div>
+
+
+<script type="text/javascript">
+(function() {
+  jQuery(function() {
+    var completer;
+
+    completer = new GmapsCompleter({
+      inputField: '#gmaps-input-address',
+      errorField: '#gmaps-error',
+      debugOn: true
+    });
+    return completer.autoCompleteInit({
+      country: "us"
+    });
+  });
+ 
+}).call(this);
+</script> 
+-->

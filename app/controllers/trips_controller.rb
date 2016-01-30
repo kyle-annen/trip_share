@@ -16,6 +16,9 @@ class TripsController < ApplicationController
 
   def show
     @trip = Trip.find(params[:id])
+
+    @trip_locations = Location.where(trip_id: params[:id])
+    
   end
   
   def index
@@ -29,7 +32,7 @@ class TripsController < ApplicationController
       params.require(:trip).permit(:name, :image, :blurb)
     end
 
-    
-
-
+    def location_params
+      params.require(:location).permit(:city, :state_province, :country, :lat, :long, :arrival_date_time, :time_zone_id, :time_zone_name, :dst_offset, :raw_offset)
   end
+end

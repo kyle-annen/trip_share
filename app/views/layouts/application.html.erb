@@ -3,10 +3,25 @@
   <head>
     <title>excurGO</title>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    
+    <!-- javascript for full text location search, google api -->
+
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>  
+
+    <!-- javascript include tag to include all javascript from rails pipeline -->
+
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
+    <!-- not sure what this does yet -->
+
     <%= csrf_meta_tags %>
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   </head>
+
+  <!-- start of the layout -->
+
   <body>
     <nav class="navbar navbar-default">
       <div class="container-fluid">
@@ -52,8 +67,10 @@
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
-    </nav>
+    </nav><!-- /.navbar -->
+
     <!-- conditional to display devise alerts --> 
+
     <% if notice %>
       <p class="alert alert-success"><%= notice %></p>
     <% end %>
@@ -63,6 +80,8 @@
     <div class="container-fluid">
       <%= yield %>
     </div>
+
+    <!-- end of the devise alerts -->
 
   </body>
 </html>
