@@ -21,18 +21,6 @@
 //= require components
 //= require_tree .
 //= require bootstrap.min
-
-// jQuery for accordion on trip/show
-$(document).ready(function($) {
-  $('#accordion').find('.accordion-toggle').click(function(){
-
-    //Expand or collapse this panel
-    $(this).next().slideToggle('fast');
-
-    //Hide the other panels
-    $(".accordion-content").not($(this).next()).slideUp('fast');
-
-  });
-})
+//= require mui
 
 
