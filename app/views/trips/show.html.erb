@@ -20,19 +20,24 @@
 
 
   <!-- fold down panel for searching location -->
-  <div class="accordion-content default margin-top">
+  <div class="accordion-content default margin-top" id="accordion-close">
     <div class="mui-panel">
-      <h4>Select a Destionation to Add</h4>
+      <h4>Locations can be added by searching, or by dropping a pin</h4>
       <div class="mui-textfield">
-        <input class="location-search" id='gmaps-input-address' type="text" placeholder="Search for a destination.." size="20"/>
+        <input class="location-search" id="gmaps-input-address" type="text" placeholder="Search for a destination.." size="20"/>
         <button class="btn btn-success" id="submit-location-btn">Add Location</button>
       </div>  
       <div class="clearfix"></div>
       <div id='gmaps-canvas'></div>
       <div id='gmaps-error'></div>
+      <span class="latlong">Lat: <span id="gmaps-output-latitude"></span></span>
+      <span class="latlong">Long: <span id="gmaps-output-longitude"></span></span>
     </div>
   </div>
 </div>
+
+<!-- react component for listing the trip locations -->
+
 <%= react_component 'TripList', {data: @trip_locations} %>
 
 
@@ -53,17 +58,23 @@
   });
 </script> 
 
-
+<!--
 <script type="text/javascript">
   $(document).ready(function($) {
     $('#accordion').find('.accordion-toggle').click(function(){
 
       //Expand or collapse this panel
-      $(this).next().slideToggle('fast');
+      $(this).next().slideToggle('slow');
 
       //Hide the other panels
-      $(".accordion-content").not($(this).next()).slideUp('fast');
+      $(".accordion-content").not($(this).next()).slideUp('slow');
+
+      //clear fields on open
+      $('#gmaps-input-address').val(""); 
+      $('#gmaps-output-latitude').val(""); 
+      $('#gmaps-output-longitude').val(""); 
 
     });
   });
 </script>
+-->
