@@ -23,15 +23,49 @@
   <div class="accordion-content default margin-top" id="accordion-close">
     <div class="mui-panel">
       <h4>Locations can be added by searching, or by dropping a pin</h4>
-      <div class="mui-textfield">
+
+
+
+
+      <div class="mui-textfield col-md-4">
         <input class="location-search" id="gmaps-input-address" type="text" placeholder="Search for a destination.." size="20"/>
-        <button class="btn btn-success" id="submit-location-btn">Add Location</button>
       </div>  
+      <br/>
+      <div class="clearfix"></div>
+
+
+      
+      <%= form_for @new_location do |f|  %>
+        <div class="mui-textfield col-md-4">
+          <legend>location</legend>
+          <%= f.text_field :city%>
+        </div>
+
+        <div class="mui-textfield col-md-4">
+          <legend>latitude</legend>
+          <%= f.text_field :lat%>
+        </div>
+
+        <div class="mui-textfield col-md-4">
+          <legend>longitude</legend>
+          <%= f.text_field :long%>
+        </div>
+
+        <div class="col-md-4">
+          <%= f.hidden_field :trip_id, :value => @trip.id %>
+          <%= f.submit "Add Location", :class => "btn btn-success" %>
+        </div>
+      <% end %>
+
+
+
+
       <div class="clearfix"></div>
       <div id='gmaps-canvas'></div>
       <div id='gmaps-error'></div>
-      <span class="latlong">Lat: <span id="gmaps-output-latitude"></span></span>
+      <span class="latlong">Lat: <span id="gmaps-output-latitude"></span></span> 
       <span class="latlong">Long: <span id="gmaps-output-longitude"></span></span>
+      <!-- hidden field to access from save-location.js -->
     </div>
   </div>
 </div>

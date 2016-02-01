@@ -18,21 +18,25 @@ class TripsController < ApplicationController
     @trip = Trip.find(params[:id])
 
     @trip_locations = Location.where(trip_id: params[:id])
-    
+
+
+    @new_location = Location.new
+    @new_location.trip_id = @trip.id
+
   end
-  
+
   def index
     @trips = Trip.where(user_id: current_user.id).paginate(
       :page => params[:page], :per_page => 12)
   end 
 
-    private
+  private
 
-    def trip_params
-      params.require(:trip).permit(:name, :image, :blurb)
-    end
+  def trip_params
+    params.require(:trip).permit(:name, :image, :blurb)
+  end
 
-    def location_params
-      params.require(:location).permit(:city, :state_province, :country, :lat, :long, :arrival_date_time, :time_zone_id, :time_zone_name, :dst_offset, :raw_offset)
+  def location_params
+    params.require(:location).permit(:city, :state_province, :country, :lat, :long, :arrival_date_time, :time_zone_id, :time_zone_name, :dst_offset, :raw_offset)
   end
 end
