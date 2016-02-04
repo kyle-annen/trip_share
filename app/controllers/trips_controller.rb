@@ -16,10 +16,7 @@ class TripsController < ApplicationController
 
   def show
     @trip = Trip.find(params[:id])
-
     @trip_locations = Location.where(trip_id: params[:id])
-
-
     @new_location = Location.new
     @new_location.trip_id = @trip.id
 
@@ -37,6 +34,8 @@ class TripsController < ApplicationController
   end
 
   def location_params
-    params.require(:location).permit(:city, :state_province, :country, :lat, :long, :arrival_date_time, :time_zone_id, :time_zone_name, :dst_offset, :raw_offset)
+    params.require(:location).permit(:city, :state_province, 
+    :country, :lat, :long, :arrival_date_time, :time_zone_id, 
+    :time_zone_name, :dst_offset, :raw_offset)
   end
 end

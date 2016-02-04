@@ -34,9 +34,7 @@ gem 'will_paginate-bootstrap'
 
 # React.js integration gem
 gem 'react-rails', github: 'reactjs/react-rails'
-gem 'react-bootstrap-rails'
-
-gem 'jquery-rails'
+gem 'react-bootstrap-rails' 
 gem 'jquery-ui-rails'
 gem 'jquery-turbolinks'
 gem 'gmaps-autocomplete-rails'
