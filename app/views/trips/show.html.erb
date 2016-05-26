@@ -1,114 +1,86 @@
-
 <!-- image using rails image tag helper -->
-<div class="trip-page-image pull-left">
-  <%= image_tag @trip.image.url(:medium) %>
+<div class="row">
+  <div class="trip-page-image pull-left col-md-4">
+    <%= image_tag @trip.image.url(:medium) %>
+  </div>
+  <!-- Trip summary using react -->
+  <div class="col-md-8">
+    <%= react_component 'TripSummary', {data: @trip} %>
+  </div>
 </div>
-
-<!-- Trip summary using react -->
-<%= react_component 'TripSummary', {data: @trip} %>
-
 <!-- random stuff instead of fixing css -->
 <div class="clearfix"></div>
 <div class="mui-divider margin-top"></div>
-
-
 <!-- accordion for slide out location adding -->
 <div id="accordion">
   <button class="accordion-toggle mui-btn mui-btn--raised mui-btn--primary">
-    <span class="glyphicon glyphicon-globe"></span>
-    Add a Destination</button>
-
-
+  <span class="glyphicon glyphicon-globe"></span>
+  Add a Destination</button>
   <!-- fold down panel for searching location -->
   <div class="accordion-content default margin-top" id="accordion-close">
     <div class="mui-panel">
-      <h4>Locations can be added by searching, or by dropping a pin</h4>
-
-
-
-
-      <div class="mui-textfield col-md-4">
-        <input class="location-search" id="gmaps-input-address" type="text" placeholder="Search for a destination.." size="20"/>
-      </div>  
-      <br/>
-      <div class="clearfix"></div>
-
-
-      
-      <%= form_for @new_location do |f|  %>
+      <div class="row">
         <div class="mui-textfield col-md-4">
+          <input class="location-search" id="gmaps-input-address" type="text" placeholder="Search for a destination.." size="20"/>
+        </div>
+        
+        
+        <%= form_for @new_location do |f|  %>
+        <div class="mui-textfield col-md-4 hidden">
           <legend>location</legend>
           <%= f.text_field :city%>
         </div>
-
-        <div class="mui-textfield col-md-4">
+        <div class="mui-textfield col-md-4 hidden">
           <legend>latitude</legend>
           <%= f.text_field :lat%>
         </div>
-
-        <div class="mui-textfield col-md-4">
+        <div class="mui-textfield col-md-4 hidden">
           <legend>longitude</legend>
           <%= f.text_field :long%>
         </div>
-
         <div class="col-md-4">
           <%= f.hidden_field :trip_id, :value => @trip.id %>
-          <%= f.submit "Add Location", :class => "mui-btn mui-btn--raised mui-btn--primary" %>
+          <%= f.submit "Add Destination", :class => "mui-btn mui-btn--raised mui-btn--primary" %>
         </div>
-      <% end %>
-
-
-
-
+        <% end %>
+      </div>
       <div class="clearfix"></div>
       <div id='gmaps-canvas'></div>
       <div id='gmaps-error'></div>
-      <span class="latlong">Lat: <span id="gmaps-output-latitude"></span></span> 
+      <span class="latlong">Lat: <span id="gmaps-output-latitude"></span></span>
       <span class="latlong">Long: <span id="gmaps-output-longitude"></span></span>
       <!-- hidden field to access from save-location.js -->
     </div>
   </div>
 </div>
-
 <!-- react component for listing the trip locations -->
-
 <%= react_component 'TripList', {data: @trip_locations} %>
-
-
-
 <!-- gmaps javasctipt -->
 <script type="text/javascript">
-  jQuery(function() {
-    var completer;
-
-    completer = new GmapsCompleter({
-      inputField: '#gmaps-input-address',
-      errorField: '#gmaps-error'
-    });
-
-    completer.autoCompleteInit({
-      country: "us"
-    });
-  });
-</script> 
-
+jQuery(function() {
+var completer;
+completer = new GmapsCompleter({
+inputField: '#gmaps-input-address',
+errorField: '#gmaps-error'
+});
+completer.autoCompleteInit({
+country: "us"
+});
+});
+</script>
 <!--
 <script type="text/javascript">
-  $(document).ready(function($) {
-    $('#accordion').find('.accordion-toggle').click(function(){
-
-      //Expand or collapse this panel
-      $(this).next().slideToggle('slow');
-
-      //Hide the other panels
-      $(".accordion-content").not($(this).next()).slideUp('slow');
-
-      //clear fields on open
-      $('#gmaps-input-address').val(""); 
-      $('#gmaps-output-latitude').val(""); 
-      $('#gmaps-output-longitude').val(""); 
-
-    });
-  });
+$(document).ready(function($) {
+$('#accordion').find('.accordion-toggle').click(function(){
+//Expand or collapse this panel
+$(this).next().slideToggle('slow');
+//Hide the other panels
+$(".accordion-content").not($(this).next()).slideUp('slow');
+//clear fields on open
+$('#gmaps-input-address').val("");
+$('#gmaps-output-latitude').val("");
+$('#gmaps-output-longitude').val("");
+});
+});
 </script>
 -->

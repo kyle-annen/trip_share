@@ -18,6 +18,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "mui";
+@import url(https://fonts.googleapis.com/css?family=Lobster);
 
 
 html, body {
@@ -136,13 +137,18 @@ html, body {
   padding: 0px 25px 0px 20px; 
 }
  
-.trip-page-image{
-  width: 200px;
-  margin-right: 110px; 
-}
+//.trip-page-image{
+// width: 200px;
+//  margin-right: 110px; 
+//}
 
 .trip-summary {
   min-width: 100px;
+}
+
+.navbar-brand {
+  font-family: 'Lobster', cursive;
+  font-size: 3em;
 }
 
 
