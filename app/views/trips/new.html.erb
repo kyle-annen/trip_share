@@ -5,18 +5,16 @@
     <div class ="container-fluid">
       <%= form_for(@trip) do |f| %>
       <%= render 'shared/error_messages' %>
-
       <div class="mui-textfield">
         <%= f.label :Trip %>
         <%= f.text_field :name%>
       </div>
       <div class="mui-textfield">
-      <%= f.label :Blurb %>
-      <%= f.text_field :blurb, class: 'form-control' %>
+        <%= f.label :Blurb %>
+        <%= f.text_field :blurb, class: 'form-control' %>
       </div>
       <%= f.label :Image, class: 'mui-textfield' %>
       <%= f.file_field :image, class: 'mui-textfield' %><br>
-
       <%= f.submit "Create Trip", class: "mui-btn mui-btn--raised" %>
       <% end %>
     </div>
