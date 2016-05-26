@@ -14,7 +14,7 @@
 
 <!-- accordion for slide out location adding -->
 <div id="accordion">
-  <button class="accordion-toggle btn btn-primary">
+  <button class="accordion-toggle mui-btn mui-btn--raised mui-btn--primary">
     <span class="glyphicon glyphicon-globe"></span>
     Add a Destination</button>
 
@@ -53,7 +53,7 @@
 
         <div class="col-md-4">
           <%= f.hidden_field :trip_id, :value => @trip.id %>
-          <%= f.submit "Add Location", :class => "btn btn-success" %>
+          <%= f.submit "Add Location", :class => "mui-btn mui-btn--raised mui-btn--primary" %>
         </div>
       <% end %>
 
