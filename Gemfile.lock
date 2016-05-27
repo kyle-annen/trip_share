@@ -104,6 +104,8 @@ GEM
       warden (~> 1.2.3)
     erubis (2.7.0)
     execjs (2.6.0)
+    font-awesome-sass (4.6.2)
+      sass (>= 3.2)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
     gmaps-autocomplete-rails (0.1.4)
@@ -227,6 +229,7 @@ DEPENDENCIES
   byebug
   coffee-rails (~> 4.1.0)
   devise
+  font-awesome-sass
   gmaps-autocomplete-rails
   jbuilder (~> 2.0)
   jquery-rails

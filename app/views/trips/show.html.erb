@@ -1,11 +1,13 @@
 <!-- image using rails image tag helper -->
 <div class="row">
   <div class="trip-page-image pull-left col-md-3">
-    <%= image_tag @trip.image.url(:medium) %>
+    <%= image_tag @trip.image.url(:medium), :class => 'img-rounded' %>
   </div>
   <!-- Trip summary using react -->
   <div class="col-md-8 trip-summary">
-    <%= react_component 'TripSummary', {data: @trip} %>
+    <div class="jumbotron">
+      <%= react_component 'TripSummary', {data: @trip} %>
+    </div>
   </div>
 </div>
 <!-- random stuff instead of fixing css -->

@@ -8,7 +8,7 @@ class TripsController < ApplicationController
     @trip = Trip.new(trip_params)
     @trip.user_id = current_user.id
     if @trip.save
-      render 'crop'
+      render 'crop', notice: 'The trip image needs to be cropped before we create the trip.' 
     else
       render 'new'
     end
@@ -21,7 +21,7 @@ class TripsController < ApplicationController
   def update
     @trip = current_user.trips.last
     if @trip.update_attributes(trip_params)
-      redirect_to @trip
+      redirect_to @trip, notice: 'Trip successfully created.'
     else
       render 'crop'
     end
@@ -34,7 +34,6 @@ class TripsController < ApplicationController
     @trip_locations = Location.where(trip_id: params[:id])
     @new_location = Location.new
     @new_location.trip_id = @trip.id
-
   end
 
   def index

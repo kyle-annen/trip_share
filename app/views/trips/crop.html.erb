@@ -1,31 +1,30 @@
 <div class="col-md-offset-2 col-md-8">
   
-  
-  <div class="row">
-    <div class ="container-fluid">
-      
-      <%= form_for(@trip) do |f| %>
-      <div class="container-fluid text">
-        <div class="">
-          <h1 class="">Crop Time!</h1>
-          <h5>Let's make it pretty!</h5>
-          <%= f.submit "Crop Photo", class: "mui-btn mui-btn--primary mui-btn--raised" %>
-        </div>
-        <div class="row">
-          <div class="col-md-6">
-            <h3>Original Image</h3>
-            <%= f.cropbox :image, :width => 400, :class => 'img-crop' %>
+  <div class="jumbotron">
+    <div class="row">
+      <div class ="container-fluid">
+        
+        <%= form_for(@trip) do |f| %>
+        <div class="container-fluid text">
+          <div class="">
+            <h1 class="page-title">Crop Time!</h1>
+            <h5>Let's make it pretty!</h5>
+            <%= f.submit "Crop Photo", class: "mui-btn mui-btn--primary mui-btn--raised" %>
           </div>
-          
-          <div class="col-md-6">
-            <h3>Crop Preview</h3>
-            <%= f.crop_preview :image, :width => 350, :class => 'img-crop' %>
+          <div class="row">
+            <div class="col-md-6">
+              <h3>Original Image</h3>
+              <%= f.cropbox :image, :width => 400, :class => 'img-crop' %>
+            </div>
+            
+            <div class="col-md-6">
+              <h3>Crop Preview</h3>
+              <%= f.crop_preview :image, :width => 350, :class => 'img-crop' %>
+            </div>
           </div>
         </div>
+        <% end %>
       </div>
-      <% end %>
-
     </div>
   </div>
-</div>
 </div>

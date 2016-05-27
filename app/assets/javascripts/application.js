@@ -24,14 +24,3 @@
 //= require mui
 //= require jquery.jcrop
 //= require papercrop
-
-jQuery(function($) {
-
-    $('#jcrop-holder').Jcrop({
-        addClass: 'jcrop-centered'
-    });
-
-    $('.image_crop_preview_wrapper').Jcrop({
-        addClass: 'jcrop-centered'
-    });
-});

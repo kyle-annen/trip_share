@@ -1,22 +1,23 @@
 <div class="col-md-offset-4 col-md-4">
-  
-  <h1 class="text-center">Start a New Trip</h1>
-  <div class="row">
-    <div class ="container-fluid">
-      <%= form_for(@trip) do |f| %>
-      <%= render 'shared/error_messages' %>
-      <div class="mui-textfield">
-        <%= f.label :Trip %>
-        <%= f.text_field :name%>
+  <div class="jumbotron">
+    <p class="text-center page-title">Start a New Trip</p>
+    <div class="row">
+      <div class ="container-fluid">
+        <%= form_for(@trip) do |f| %>
+        <%= render 'shared/error_messages' %>
+        <div class="mui-textfield">
+          <%= f.label :Trip %>
+          <%= f.text_field :name%>
+        </div>
+        <div class="mui-textfield">
+          <%= f.label :Blurb %>
+          <%= f.text_field :blurb %>
+        </div>
+        <%= f.label :Image, class: 'mui-textfield' %>
+        <%= f.file_field :image, class: 'mui-textfield' %>
+        <%= f.submit "Create Trip", class: "mui-btn mui-btn--raised mui-btn--primary" %>
+        <% end %>
       </div>
-      <div class="mui-textfield">
-        <%= f.label :Blurb %>
-        <%= f.text_field :blurb %>
-      </div>
-      <%= f.label :Image, class: 'mui-textfield' %>
-      <%= f.file_field :image, class: 'mui-textfield' %>
-      <%= f.submit "Create Trip", class: "mui-btn mui-btn--raised" %>
-      <% end %>
     </div>
   </div>
 </div>

@@ -20,12 +20,20 @@
 @import "bootstrap";
 @import "mui";
 @import url(https://fonts.googleapis.com/css?family=Lobster);
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
 
 
 html, body {
   height: 100%;
   margin: 0;
   padding: 0;
+  -webkit-font-smoothing: subpixel-antialiased;
+  background-image: url("https://upload.wikimedia.org/wikipedia/commons/e/ec/World_map_blank_without_borders.svg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% auto;
 }
 
 .col-centered {
@@ -84,6 +92,13 @@ html, body {
    -moz-box-shadow:    1px 1px 2px 0px rgba(50, 50, 50, 0.75);
    box-shadow:         1px 1px 2px 0px rgba(50, 50, 50, 0.75);
   
+}
+
+.tile-box {
+  padding: 0;
+  min-width: 290px;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 .text-shadow {
@@ -147,6 +162,17 @@ html, body {
   background: rgba(0, 0, 0, 0.5);
   padding: 0px 25px 0px 20px; 
 }
+
+.share-container {
+  position: absolute;
+  left: 15px;
+  bottom: 15px;
+  font: bold 14px/35px Helevetica, Sans-Serif;
+  color: white; 
+  background: rgb(0, 0, 0); /* fallback color */
+  background: rgba(0, 0, 0, 0.5);
+  padding: 0px 25px 0px 20px; 
+}
  
 //.trip-page-image{
 // width: 200px;
@@ -157,18 +183,20 @@ html, body {
 
 .trip-summary {
   min-width: 100px;
-  margin-top: -20px;
 }
 
 .navbar-brand {
   font-family: 'Lobster', cursive;
   font-size: 3em;
+  color: #0086b3;
+  text-shadow: 2px 2px 1px  white;
 }
 
 .page-title {
   font-family: 'Lobster', cursive;
-  font-size: 45px;
-  color: grey;
+  font-size: 75px;
+  color: #0086b3;
+  text-shadow: 2px 2px 1px  white;
 }
 
 
@@ -231,4 +259,41 @@ html, body {
 .mui-textfield > i {
   font-size: 10px;
   color: grey;
+}
+
+.grow { transition: all .1s ease-in-out; }
+.grow:hover { 
+
+  transform: scale(1.03); 
+  z-index: 1000;
+ -webkit-box-shadow: 0px 0px 13px 1px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 13px 1px rgba(0,0,0,0.75);
+         box-shadow: 0px 0px 13px 1px rgba(0,0,0,0.75);
+}
+
+.fa {
+  margin-right: 5px;
+  font-size: 16px;
+}
+
+.fa:hover {
+  transform: scale(1.5);
+  text-shadow: 0px 0px 4px rgba(255, 255, 255, 1);
+}
+
+a > .fa {
+  color: white;
+  text-decoration: none;
+}
+
+.no-click {
+  pointer-events: none;
+}
+
+.jumbotron {
+  background-color: lightgrey;
+}
+
+.jumbotron > p {
+  font-size: 45px;
 }

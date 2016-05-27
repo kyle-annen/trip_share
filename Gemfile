@@ -45,6 +45,9 @@ gem 'jquery-turbolinks'
 #gem used for gmaps autocomplete
 gem 'gmaps-autocomplete-rails'
 
+# font awesome gem
+gem 'font-awesome-sass'
+
 
 
 
