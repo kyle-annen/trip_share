@@ -13,6 +13,7 @@
  *= require_tree .
  *= require jquery-ui
  *= require_self
+ *= require jquery.jcrop
  */
 // "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
 @import "bootstrap-sprockets";
@@ -103,22 +104,24 @@ html, body {
   left: 15px; 
   width: auto; 
   max-width: 80%;
+  overflow: hidden;
 }
 
 .tile-blurb{
   position: absolute;
-  top: 145px;
+  top: 115px;
   left: 15px;
   width: auto;
   max-width: 90%;
-  font-size: 3em;
+  overflow: hidden;
 }
 
 .tile-cost{
   position: absolute;
-  top: 80px;
-  left: 15px;
+  top: 20px;
+  right: 15px;
   width: auto;
+  overflow: hidden;
 }
 
 .grey-background{ 
@@ -136,19 +139,36 @@ html, body {
   background: rgba(0, 0, 0, 0.5);
   padding: 0px 25px 0px 20px; 
 }
+
+.blurb-summary {
+  font: bold 14px/35px Helevetica, Sans-Serif;
+  color: white; 
+  background: rgb(0, 0, 0); /* fallback color */
+  background: rgba(0, 0, 0, 0.5);
+  padding: 0px 25px 0px 20px; 
+}
  
 //.trip-page-image{
 // width: 200px;
 //  margin-right: 110px; 
 //}
 
+
+
 .trip-summary {
   min-width: 100px;
+  margin-top: -20px;
 }
 
 .navbar-brand {
   font-family: 'Lobster', cursive;
   font-size: 3em;
+}
+
+.page-title {
+  font-family: 'Lobster', cursive;
+  font-size: 45px;
+  color: grey;
 }
 
 
@@ -212,4 +232,3 @@ html, body {
   font-size: 10px;
   color: grey;
 }
-

@@ -1,10 +1,10 @@
 <!-- image using rails image tag helper -->
 <div class="row">
-  <div class="trip-page-image pull-left col-md-4">
+  <div class="trip-page-image pull-left col-md-3">
     <%= image_tag @trip.image.url(:medium) %>
   </div>
   <!-- Trip summary using react -->
-  <div class="col-md-8">
+  <div class="col-md-8 trip-summary">
     <%= react_component 'TripSummary', {data: @trip} %>
   </div>
 </div>

@@ -130,6 +130,10 @@ GEM
     nokogiri (1.6.7.1)
       mini_portile2 (~> 2.0.0.rc2)
     orm_adapter (0.5.0)
+    papercrop (0.3.0)
+      jquery-rails
+      paperclip (>= 3.4)
+      rails (>= 3.1)
     pg (0.18.3)
     rack (1.6.4)
     rack-test (0.6.3)
@@ -220,6 +224,7 @@ DEPENDENCIES
   jquery-ui-rails
   mui-sass
   paperclip!
+  papercrop
   pg
   rails (= 4.2.4)
   react-bootstrap-rails
@@ -235,4 +240,4 @@ DEPENDENCIES
   will_paginate-bootstrap
 
 BUNDLED WITH
-   1.10.6
+   1.11.2

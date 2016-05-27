@@ -8,11 +8,26 @@ class TripsController < ApplicationController
     @trip = Trip.new(trip_params)
     @trip.user_id = current_user.id
     if @trip.save
-      redirect_to @trip
+      render 'crop'
     else
       render 'new'
     end
   end
+
+  def crop
+    @trip = current_user.trips.last
+  end
+
+  def update
+    @trip = current_user.trips.last
+    if @trip.update_attributes(trip_params)
+      redirect_to @trip
+    else
+      render 'crop'
+    end
+  end
+
+
 
   def show
     @trip = Trip.find(params[:id])
@@ -30,7 +45,10 @@ class TripsController < ApplicationController
   private
 
   def trip_params
-    params.require(:trip).permit(:name, :image, :blurb)
+    params.require(:trip).permit(:name, :image, :blurb, 
+      :image_original_w, :image_original_h, :image_box_w, 
+      :image_aspect, :image_crop_x, :image_crop_y, :image_crop_w, 
+      :image_crop_h)
   end
 
   def location_params

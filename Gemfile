@@ -38,6 +38,7 @@ gem 'react-bootstrap-rails'
 gem 'jquery-ui-rails'
 gem 'jquery-turbolinks'
 gem 'gmaps-autocomplete-rails'
+gem 'papercrop'
 
 
 
