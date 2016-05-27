@@ -1,0 +1,31 @@
+<div class="pagination-box text-center">
+  <%= will_paginate @trips, renderer: BootstrapPagination::Rails  %>
+</div>
+<!-- end pagination -->
+<div class="container-fluid">
+  <div class="clearfix"></div>
+  <% @trips.each do |trip| %>
+  <div class="col-md-4 tile-box">
+    <div class="text-over-image">
+      <%= link_to image_tag(trip.image.url(:large), :class => "img-responsive trip-index-tile"), Trip.find(trip.id) %>
+      <!-- Title for the tile -->
+      <h3 class="tile-title"><div class="grey-background">
+      <%= trip.name %></div>
+      </h3>
+      <!-- Blurb for the tile -->
+      <h3 class="tile-blurb"><div class="blurb-summary">
+      <%= truncate(trip.blurb, length: 150) %></div>
+      </h3>
+      <!-- Cost for the tile -->
+      <h3 class="tile-cost"><div class="blurb-text">
+      <%= number_to_currency(trip.cost, :unit => "$") %></div>
+      </h3>
+    </div>
+  </div>
+  <% end %>
+</div>
+<div class="clearfix"></div>
+<!-- start pagination -->
+<div class="pagination-box">
+  <%= will_paginate @trips, renderer: BootstrapPagination::Rails  %>
+</div>
