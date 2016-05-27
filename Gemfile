@@ -27,6 +27,10 @@ gem 'devise'
 gem 'bootstrap-sass', '~> 3.3.6'
 # Use paperclip for image upload
 gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
+gem 'aws-sdk', '~> 2.3'
+
+# Use papercrop for image cropping to 3:2 aspect ratio
+gem 'papercrop'
 
 # Gems used in pagination, consider changing to Kaminari
 gem 'will_paginate'
@@ -37,8 +41,9 @@ gem 'react-rails', github: 'reactjs/react-rails'
 gem 'react-bootstrap-rails' 
 gem 'jquery-ui-rails'
 gem 'jquery-turbolinks'
+
+#gem used for gmaps autocomplete
 gem 'gmaps-autocomplete-rails'
-gem 'papercrop'
 
 
 
