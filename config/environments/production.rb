@@ -79,7 +79,7 @@ Rails.application.configure do
 
   #Paperclip settings
   #Inform paperclip of location of Imagemagick
-  Paperclip.options[:command_path] = '/usr/bin/'
+  Paperclip.options[:command_path] = '/usr/bin/identify'
   #log settings
   Paperclip.options[:log] = true
   Paperclip.options[:log_command] = true
