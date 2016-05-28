@@ -33,7 +33,7 @@ html, body {
   background-image: url("https://upload.wikimedia.org/wikipedia/commons/e/ec/World_map_blank_without_borders.svg");
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-size: 100% auto;
+  background-size: 100% 100%;
 }
 
 .navbar {
@@ -229,6 +229,7 @@ html, body {
 
 .margin-top {
   margin-top: 15px;
+
 }
 
 #gmaps-input-address {
@@ -296,11 +297,13 @@ a > .fa {
 }
 
 .jumbotron {
-  background-color: lightgrey;
+  background-color: white;
+  margin-top: 35px;
 }
 
 .jumbotron > p {
   font-size: 45px;
+  font-family: 'Lobster', cursive;
 }
 
 .trip-page-header {
@@ -311,4 +314,72 @@ a > .fa {
 
 .trip-page-header-content-container {
   margin: 40px 0 25px 0;
+}
+
+
+
+.debug_dump {
+  position: fixed;
+  bottom: 0px;
+  left: 30%;
+  right: 30%;
+  z-index: 2000;
+}
+
+.debug-button {
+  height: 45px;
+  width: 45px;
+  border-radius: 100%;
+  background-color: #ff3333;
+  color: white;
+  position: fixed;
+  bottom: 15px;
+  right: 15px;
+  z-index: 2001;
+  cursor: pointer;
+  -webkit-box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.75);
+     -moz-box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.75);
+          box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.75);
+}
+
+.debub-button:hover {
+  text-shadow: 0px 0px 4px rgba(255, 255, 255, 1);
+}
+
+.debug-button:active {
+  -webkit-box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.75);
+     -moz-box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.75);
+          box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.75);
+}
+
+.bug-position {
+  margin: 0 0 0 6px;
+  font-size: 26px;
+}
+
+.fa-arrow-up {
+  font-size: 40px;
+  margin-top: 8px;
+}
+
+.scroll-up-button {
+  height: 60px;
+  width: 60px;
+  border-radius: 100%;
+  background-color: #0086b3;
+  color: white;
+  position: fixed;
+  bottom: 25px;
+  left: 25px;
+  z-index: 2001;
+  cursor: pointer;
+  -webkit-box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.75);
+     -moz-box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.75);
+          box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.75);
+}
+
+.scroll-up-button:active {
+  -webkit-box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.75);
+     -moz-box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.75);
+          box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.75);
 }
