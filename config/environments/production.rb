@@ -78,8 +78,8 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   #Paperclip settings
-  #Infrom paperclip of location of Imagemagick
-  Paperclip.options[:command_path] = '/usr/local/bin/'
+  #Inform paperclip of location of Imagemagick
+  Paperclip.options[:command_path] = '/usr/local/bin/identify'
   #log settings
   Paperclip.options[:log] = true
   Paperclip.options[:log_command] = true
