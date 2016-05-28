@@ -27,7 +27,9 @@ gem 'devise'
 gem 'bootstrap-sass', '~> 3.3.6'
 # Use paperclip for image upload
 gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
-gem 'aws-sdk', '~> 2.3'
+#gem 'aws-sdk', '~> 2.3'
+#pinning aws-sdk to 1.6 to test papercrop error on heroku
+gem 'aws-sdk', '~> 1.6'
 
 # Use papercrop for image cropping to 3:2 aspect ratio
 gem 'papercrop'
