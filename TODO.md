@@ -7,7 +7,7 @@
 
 
 
-# Features 
+# Add Features 
 - enable cacheing of some sort
 - switch pagination to kaminari
 - setup cacheing on production
