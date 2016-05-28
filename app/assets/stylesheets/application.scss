@@ -36,6 +36,10 @@ html, body {
   background-size: 100% auto;
 }
 
+.navbar {
+  margin-bottom: 0px;
+}
+
 .col-centered {
   float: none;
   margin: 0 auto;
@@ -183,6 +187,7 @@ html, body {
 
 .trip-summary {
   min-width: 100px;
+  color: white;
 }
 
 .navbar-brand {
@@ -296,4 +301,14 @@ a > .fa {
 
 .jumbotron > p {
   font-size: 45px;
+}
+
+.trip-page-header {
+   background-color: black;
+   margin: -15px;
+   padding: -10px;
+}
+
+.trip-page-header-content-container {
+  margin: 40px 0 25px 0;
 }

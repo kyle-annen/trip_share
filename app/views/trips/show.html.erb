@@ -1,11 +1,11 @@
 <!-- image using rails image tag helper -->
-<div class="row">
-  <div class="trip-page-image pull-left col-md-3">
-    <%= image_tag @trip.image.url(:medium), :class => 'img-rounded' %>
-  </div>
-  <!-- Trip summary using react -->
-  <div class="col-md-8 trip-summary">
-    <div class="jumbotron">
+<div class="row trip-page-header">
+  <div class="row trip-page-header-content-container">
+    <div class="trip-page-image pull-left col-md-3">
+      <%= image_tag @trip.image.url(:medium), :class => 'img-rounded' %>
+    </div>
+    <!-- Trip summary using react -->
+    <div class="col-md-8 trip-summary">
       <%= react_component 'TripSummary', {data: @trip} %>
     </div>
   </div>
