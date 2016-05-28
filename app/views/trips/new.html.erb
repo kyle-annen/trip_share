@@ -3,7 +3,7 @@
     <p class="text-center page-title">Start a New Trip</p>
     <div class="row">
       <div class ="container-fluid">
-        <%= form_for(@trip) do |f| %>
+        <%= form_for(@trip, multipart: true) do |f| %>
         <%= render 'shared/error_messages' %>
         <div class="mui-textfield">
           <%= f.label :Trip %>
