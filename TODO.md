@@ -1,6 +1,13 @@
 
-- setup AWS to work with paperclip (https://devcenter.heroku.com/articles/paperclip-s3)
-- switch pagination to kaminari
-- setup cacheing on production
+
+# Bug Fixes
 - fix scroll up button to appear when scroll down
 - fix strange margin on the right of page
+- fix AWS S3 paperclip papercrop error
+
+
+
+# Features 
+- enable cacheing of some sort
+- switch pagination to kaminari
+- setup cacheing on production
