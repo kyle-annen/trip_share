@@ -146,6 +146,7 @@ GEM
       paperclip (>= 3.4)
       rails (>= 3.1)
     pg (0.18.3)
+    puma (3.4.0)
     rack (1.6.4)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -244,6 +245,7 @@ DEPENDENCIES
   paperclip!
   papercrop
   pg
+  puma
   rails (= 4.2.4)
   rails_12factor
   react-bootstrap-rails
