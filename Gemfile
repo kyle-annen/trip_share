@@ -48,6 +48,9 @@ gem 'gmaps-autocomplete-rails'
 # font awesome gem
 gem 'font-awesome-sass'
 
+# use rails 12 factor gem for rails logs in heroku logs
+gem 'rails_12factor'
+
 
 
 
