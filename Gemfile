@@ -28,6 +28,7 @@ gem 'bootstrap-sass', '~> 3.3.6'
 # Use paperclip for image upload
 gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
 gem 'aws-sdk'
+gem 'rmagick'
 
 # Use papercrop for image cropping to 3:2 aspect ratio
 gem 'papercrop'
