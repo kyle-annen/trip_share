@@ -39,7 +39,8 @@
             <div class="form-group  ">
               <input type="text" class="form-control" placeholder="Search Trips">
             </div>
-            <button type="submit" class="btn btn-default">Submit</button>
+            <button type="submit" class="btn btn-default">Submit
+            </button>
           </form>
           <ul class="nav navbar-nav navbar-right">
             <% if user_signed_in? %>
@@ -61,19 +62,30 @@
           </div>
         </div>
       </nav>
+
+      <!-- Container for divise alerts -->
+      <div class="row">
+      <div class="col-md-offset-4 col-md-4">
+
       <!-- conditional to display devise alerts -->
       <% if notice %>
       <p class="alert alert-success"><%= notice %></p>
       <% end %>
+
       <% if alert %>
       <p class="alert alert-danger"><%= alert %></p>
       <% end %>
+      <!-- end of the devise alerts -->
+      </div>
+      </div>
+      <!-- end of Container for Divise alerts -->
+
       <div class="container-fluid">
         <%= yield %>
       </div>
-      <!-- end of the devise alerts -->
+
       
-      
+      <!-- start footer, debug button and scroll to top of page -->
       <div class="debug-button" id="debug-switch">
         <div class="bug-position text-center no-click">
           <%= icon('bug')%>
