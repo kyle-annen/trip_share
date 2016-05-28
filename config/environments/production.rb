@@ -77,8 +77,12 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
+  #Paperclip settings
   #Infrom paperclip of location of Imagemagick
   Paperclip.options[:command_path] = '/usr/local/bin/'
+  #log settings
+  Paperclip.options[:log] = true
+  Paperclip.options[:log_command] = true
 
   # s3 paperclip settiongs, the s3_credentials are stored in heroku
   config.paperclip_defaults = {
