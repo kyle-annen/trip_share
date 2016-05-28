@@ -8,7 +8,7 @@ class TripsController < ApplicationController
     @trip = Trip.new(trip_params)
     @trip.user_id = current_user.id
     if @trip.save
-      render 'crop', notice: 'The trip image needs to be cropped before we create the trip.' 
+      render 'crop'
     else
       render 'new'
     end
