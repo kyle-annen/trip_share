@@ -1,4 +1,6 @@
-$(document).ready(function(){
+
+
+var scrollButton = function(){
 
 	//initially hide scroll-up-switch
 	$("#scroll-up-switch").fadeOut(0);
@@ -18,4 +20,7 @@ $(document).ready(function(){
 	$(document).on("click", "#scroll-up-switch", function(){
 		$('html, body').animate({scrollTop: 0}, 'slow');
 	})
-})
+};
+
+$(document).ready(scrollButton);
+$(document).on('page:load', scrollButton);

@@ -1,4 +1,4 @@
-$(document).ready(function(){
+var loadDebugButton = function(){
 	$(".debug_dump").attr('id', 'debug-panel');
 	$("#debug-panel").addClass('hidden');
 	$(document).on("click", "#debug-switch", function(){
@@ -10,4 +10,8 @@ $(document).ready(function(){
 			console.log("adding class hidden");
 		}
 	});
-});
+};
+
+
+$(document).ready(loadDebugButton);
+$(document).on('page:load', loadDebugButton);
