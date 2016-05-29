@@ -81,8 +81,6 @@ Rails.application.configure do
   #Inform paperclip of location of Imagemagick
   Paperclip.options[:command_path] = '/usr/bin/'
   #log settings
-  Paperclip.options[:log] = true
-  Paperclip.options[:log_command] = true
 
   # s3 paperclip settiongs, the s3_credentials are stored in heroku
   config.paperclip_defaults = {
