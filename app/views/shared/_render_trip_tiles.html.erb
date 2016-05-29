@@ -1,5 +1,7 @@
-<div class="pagination-box text-center">
-  <%= will_paginate @trips, renderer: BootstrapPagination::Rails  %>
+
+  
+<div class="container-fluid">
+  <%= will_paginate @trips, renderer: BootstrapPagination::Rails, class: "pagination pagination-centered"  %>
 </div>
 <!-- end pagination -->
 <div class="container-fluid">
