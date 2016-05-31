@@ -52,6 +52,10 @@ gem 'font-awesome-sass'
 # use rails 12 factor gem for rails logs in heroku logs
 gem 'rails_12factor'
 
+# Babel ES6 compiler
+gem 'sprockets'
+gem 'sprockets-es6', require: 'sprockets/es6'
+
 
 
 

@@ -54,8 +54,11 @@
                 </ul>
               </li>
               <% else %>
+              
               <li> <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %></li>
+
               <li><%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %></li>
+
               <% end %>
               <!-- end links for login/logout -->
             </ul>
@@ -101,6 +104,6 @@
           <%= debug(params) if Rails.env.development? %>
         </div>
       </div>
-      <%= render 'shared/footer' %>
+      <%= render 'shared/js_footer' %>
     </body>
   </html>

@@ -2,6 +2,15 @@ require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
 
+
+#use babel / es6
+require "action_view/railtie"
+require "sprockets/railtie"
+# require "rails/test_unit/railtie"
+require 'sprockets/es6'
+
+
+
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)

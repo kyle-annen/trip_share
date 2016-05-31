@@ -25,32 +25,43 @@
         <div class="mui-textfield col-md-4">
           <input class="location-search" id="gmaps-input-address" type="text" placeholder="Search for a destination.." size="20"/>
         </div>
-        
-        
-        <%= form_for @new_location do |f|  %>
-        <div class="mui-textfield col-md-4 hidden">
-          <legend>location</legend>
-          <%= f.text_field :city%>
-        </div>
-        <div class="mui-textfield col-md-4 hidden">
-          <legend>latitude</legend>
-          <%= f.text_field :lat%>
-        </div>
-        <div class="mui-textfield col-md-4 hidden">
-          <legend>longitude</legend>
-          <%= f.text_field :long%>
-        </div>
+        <!-- start row -->
         <div class="col-md-4">
-          <%= f.hidden_field :trip_id, :value => @trip.id %>
-          <%= f.submit "Add Destination", :class => "mui-btn mui-btn--raised mui-btn--primary" %>
+          <div class="row">
+            <%= form_for @new_location do |f|  %>
+            <div class="mui-textfield hidden">
+              <legend>location</legend>
+              <%= f.text_field :city%>
+            </div>
+            <div class="mui-textfield hidden">
+              <legend>latitude</legend>
+              <%= f.text_field :lat%>
+            </div>
+            <div class="mui-textfield hidden">
+              <legend>longitude</legend>
+              <%= f.text_field :long%>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4">
+              <%= f.hidden_field :trip_id, :value => @trip.id %>
+              <%= f.submit "Add Destination", :class => "mui-btn mui-btn--raised mui-btn--primary" %>
+            </div>
+          </div>
         </div>
         <% end %>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <div id='gmaps-canvas'></div>
+          </div>
+        </div>
+        
       </div>
-      <div class="clearfix"></div>
-      <div id='gmaps-canvas'></div>
+      <!--- end row -->
       <div id='gmaps-error'></div>
-      <span class="latlong">Lat: <span id="gmaps-output-latitude"></span></span>
-      <span class="latlong">Long: <span id="gmaps-output-longitude"></span></span>
+      <span class="latlong hidden">Lat: <span id="gmaps-output-latitude"></span></span>
+      <span class="latlong hidden">Long: <span id="gmaps-output-longitude"></span></span>
       <!-- hidden field to access from save-location.js -->
     </div>
   </div>
@@ -70,19 +81,3 @@ country: "us"
 });
 });
 </script>
-<!--
-<script type="text/javascript">
-$(document).ready(function($) {
-$('#accordion').find('.accordion-toggle').click(function(){
-//Expand or collapse this panel
-$(this).next().slideToggle('slow');
-//Hide the other panels
-$(".accordion-content").not($(this).next()).slideUp('slow');
-//clear fields on open
-$('#gmaps-input-address').val("");
-$('#gmaps-output-latitude').val("");
-$('#gmaps-output-longitude').val("");
-});
-});
-</script>
--->
