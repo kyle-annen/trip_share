@@ -13,62 +13,64 @@
 <!-- random stuff instead of fixing css -->
 <div class="clearfix"></div>
 <div class="mui-divider margin-top"></div>
-<!-- accordion for slide out location adding -->
-<div id="accordion">
-  <button class="accordion-toggle mui-btn mui-btn--raised mui-btn--primary">
-  <span class="glyphicon glyphicon-globe"></span>
-  Add a Destination</button>
-  <!-- fold down panel for searching location -->
-  <div class="accordion-content default margin-top" id="accordion-close">
-    <div class="mui-panel">
-      <div class="row">
-        <div class="mui-textfield col-md-4">
+<!--
+location modal button
+-->
+<button type="button" class="mui-btn mui-btn--raised mui-btn--primary" data-toggle="modal" data-target="#trip-modal">
+<span class="glyphicon glyphicon-globe"></span>
+Add a Destination</button>
+<!--
+location modal
+-->
+<div class="modal fade" id="trip-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title page-title" id="myModalLabel">Add a Location</h4>
+      </div>
+      <div class="modal-body">
+        <!-- start form -->
+        <div class="mui-textfield col-md-6">
           <input class="location-search" id="gmaps-input-address" type="text" placeholder="Search for a destination.." size="20"/>
         </div>
         <!-- start row -->
-        <div class="col-md-4">
-          <div class="row">
-            <%= form_for @new_location do |f|  %>
-            <div class="mui-textfield hidden">
-              <legend>location</legend>
-              <%= f.text_field :city%>
-            </div>
-            <div class="mui-textfield hidden">
-              <legend>latitude</legend>
-              <%= f.text_field :lat%>
-            </div>
-            <div class="mui-textfield hidden">
-              <legend>longitude</legend>
-              <%= f.text_field :long%>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-4">
-              <%= f.hidden_field :trip_id, :value => @trip.id %>
-              <%= f.submit "Add Destination", :class => "mui-btn mui-btn--raised mui-btn--primary" %>
-            </div>
-          </div>
-        </div>
-        <% end %>
-        </div>
-        <div class="row">
-          <div class="col-md-4">
-            <div id='gmaps-canvas'></div>
-          </div>
-        </div>
         
+        <%= form_for @new_location, :remote => true do |f|  %>
+        <div class="mui-textfield hidden">
+          <legend>location</legend>
+          <%= f.text_field :city%>
+        </div>
+        <div class="mui-textfield hidden">
+          <legend>latitude</legend>
+          <%= f.text_field :lat%>
+        </div>
+        <div class="mui-textfield hidden">
+          <legend>longitude</legend>
+          <%= f.text_field :long%>
+        </div>
+        <%= f.hidden_field :trip_id, :value => @trip.id %>
+        <%= f.submit "Add Destination", :class => "mui-btn mui-btn--raised mui-btn--primary" %>
+        <% end %>
+        <div id='gmaps-canvas'></div>
+        <!-- end form -->
+
+
       </div>
-      <!--- end row -->
-      <div id='gmaps-error'></div>
-      <span class="latlong hidden">Lat: <span id="gmaps-output-latitude"></span></span>
-      <span class="latlong hidden">Long: <span id="gmaps-output-longitude"></span></span>
-      <!-- hidden field to access from save-location.js -->
+      <div class="modal-footer">
+        <button type="button" class="mui-btn mui-btn--raised mui-btn--default" data-dismiss="modal">Close</button>
+        <button type="button" class="mui-btn mui-btn--raised mui-btn--primary">Save changes</button>
+      </div>
     </div>
   </div>
 </div>
-<!-- react component for listing the trip locations -->
+<!--
+react component for listing the trip locations
+-->
 <%= react_component 'TripList', {data: @trip_locations} %>
-<!-- gmaps javasctipt -->
+<!--
+gmaps javasctipt
+-->
 <script type="text/javascript">
 jQuery(function() {
 var completer;
