@@ -394,4 +394,19 @@ a > .fa {
   margin-top: 15px;
 }
 
-
+//gmaps on modal fix trip#show
+.pac-container {
+  background-color: #FFF;
+  z-index: 20;
+  position: fixed;
+  display: inline-block;
+  float: left;
+}
+//gmaps on modal fix trip#show
+.modal {
+  z-index: 20;
+}
+//gmaps on modal fix trip#show
+.modal-backdrop {
+  z-index: 10;
+}

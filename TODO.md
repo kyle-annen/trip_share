@@ -14,3 +14,14 @@
 - switch pagination to kaminari
 - setup cacheing on production
 - Convert all coffeescript to ES6
+- integrate google places
+- integrate airBnB, booking.com, some sort of travel
+- integrate openTable, UrbanSpoon
+- enable sharing of reservations
+
+
+#start android version
+- react native?
+
+#start iOSX app
+- react native?
