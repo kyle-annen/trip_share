@@ -3,23 +3,28 @@
   <head>
     <title>excurGO</title>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-    
-    <!-- javascript for full text location search, google api -->
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDwcXunVemFYbtL-898MWQY11z7QE4cl70&signed_in=true&callback=initMap">
-    </script>
-    <!-- javascript include tag to include all javascript from rails pipeline -->
+    <!-- 
+    javascript include tag to include all javascript from rails pipeline 
+    -->
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-    <!-- not sure what this does yet -->
+    <!-- 
+    not sure what this does yet 
+    -->
     <%= csrf_meta_tags %>
-    <!-- iPhone 6 shim -->
+    <!-- 
+    mobile phone 
+    -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
-  <!-- start of the layout -->
+  <!-- 
+  start of the layout 
+  -->
   <body>
     <nav class="navbar navbar-default">
       <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
+        <!-- 
+        Brand and toggle get grouped for better mobile display 
+        -->
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
           <span class="sr-only">Toggle navigation</span>

@@ -30,7 +30,7 @@ html, body {
   margin: 0;
   padding: 0;
   -webkit-font-smoothing: subpixel-antialiased;
-  background-image: url("https://upload.wikimedia.org/wikipedia/commons/e/ec/World_map_blank_without_borders.svg");
+  //background-image: url("https://upload.wikimedia.org/wikipedia/commons/e/ec/World_map_blank_without_borders.svg");
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: 100% 100%;
@@ -245,6 +245,7 @@ html, body {
 }
 
 #gmaps-canvas {
+  display: block;
   height: 400px;
   width: 100%;
   margin-top: 15px;

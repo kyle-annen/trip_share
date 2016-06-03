@@ -16,7 +16,7 @@
 <!--
 location modal button
 -->
-<button type="button" class="mui-btn mui-btn--raised mui-btn--primary" data-toggle="modal" data-target="#trip-modal">
+<button type="button" class="mui-btn mui-btn--raised mui-btn--primary" data-toggle="modal" data-target="#trip-modal" id="location-button">
 <span class="glyphicon glyphicon-globe"></span>
 Add a Destination</button>
 <!--
@@ -53,9 +53,8 @@ location modal
         <%= f.submit "Add Destination", :class => "mui-btn mui-btn--raised mui-btn--primary" %>
         <% end %>
         <div id='gmaps-canvas'></div>
+        
         <!-- end form -->
-
-
       </div>
       <div class="modal-footer">
         <button type="button" class="mui-btn mui-btn--raised mui-btn--default" data-dismiss="modal">Close</button>
@@ -69,22 +68,8 @@ react component for listing the trip locations
 -->
 <%= react_component 'TripList', {data: @trip_locations} %>
 <!--
-gmaps javasctipt
--->
-<script type="text/javascript">
-jQuery(function() {
-var completer;
-completer = new GmapsCompleter({
-inputField: '#gmaps-input-address',
-errorField: '#gmaps-error'
-});
-completer.autoCompleteInit({
-country: "us"
-});
-});
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDwcXunVemFYbtL-898MWQY11z7QE4cl70&signed_in=true&callback=initMap">
 </script>
-
-<!--
-google places JS
 -->
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key= AIzaSyDwcXunVemFYbtL-898MWQY11z7QE4cl70&libraries=places"></script>
+
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDwcXunVemFYbtL-898MWQY11z7QE4cl70&libraries=places&signed_in=true&callback=initMap"></script>
