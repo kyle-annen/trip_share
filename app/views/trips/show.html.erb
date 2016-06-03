@@ -7,18 +7,39 @@
     <!-- Trip summary using react -->
     <div class="col-md-8 trip-summary">
       <%= react_component 'TripSummary', {data: @trip} %>
+      
     </div>
   </div>
 </div>
 <!-- random stuff instead of fixing css -->
 <div class="clearfix"></div>
 <div class="mui-divider margin-top"></div>
+
 <!--
 location modal button
 -->
-<button type="button" class="mui-btn mui-btn--raised mui-btn--primary" data-toggle="modal" data-target="#trip-modal" id="location-button">
-<span class="glyphicon glyphicon-globe"></span>
-Add a Destination</button>
+<div class="container-fluid">
+  
+  <button type="button" class="mui-btn mui-btn--raised mui-btn--primary" data-toggle="modal" data-target="#trip-modal" id="location-button">
+  <span class="fa fa-globe" aria-hidden="true"></span> Add Destination</button>
+
+  <button type="button" class="mui-btn mui-btn--raised mui-btn--primary" data-toggle="modal" data-target="#trip-modal" id="location-button">
+  <span class="fa fa-plane" aria-hidden="true"></span> Add Travel</button>
+
+   <button type="button" class="mui-btn mui-btn--raised mui-btn--primary" data-toggle="modal" data-target="" id="">
+  <span class="fa fa-bed" aria-hidden="true"></span> Add Accomodation</button>  
+  
+  <button type="button" class="mui-btn mui-btn--raised mui-btn--primary" data-toggle="modal" data-target="#trip-modal" id="location-button">
+  <span class="fa fa-cutlery" aria-hidden="true"></span> Add Restraunt</button>
+
+  <button type="button" class="mui-btn mui-btn--raised mui-btn--primary" data-toggle="modal" data-target="#trip-modal" id="location-button">
+  <span class="fa fa-calendar" aria-hidden="true"></span> Add Event</button>  
+
+  <button type="button" class="mui-btn mui-btn--raised mui-btn--primary" data-toggle="modal" data-target="#trip-modal" id="location-button">
+  <span class="fa fa-ticket" aria-hidden="true"></span> Get Tickets</button>  
+  
+</div>
+
 <!--
 location modal
 -->
@@ -71,5 +92,4 @@ react component for listing the trip locations
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDwcXunVemFYbtL-898MWQY11z7QE4cl70&signed_in=true&callback=initMap">
 </script>
 -->
-
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDwcXunVemFYbtL-898MWQY11z7QE4cl70&libraries=places&signed_in=true&callback=initMap"></script>
