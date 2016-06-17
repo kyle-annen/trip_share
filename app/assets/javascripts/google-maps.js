@@ -1,6 +1,6 @@
-var map;
-var lat = -33.8665433;
-var long = 151.1956316;
+var map;                // map variable for gmaps
+var lat = -33.8665433;  // seattle lat
+var long = 151.1956316; // seattle long
 
 //get coordinates
 function getLocation() {
@@ -32,12 +32,11 @@ function initialize() {
 }
 
 function recenterMap() {
-  map.setCenter(new google.maps.LatLng(lat, long));
+  map.panTo(new google.maps.LatLng(lat, long));
 }
 
 $(document).ready(function(){
   getLocation();
-  initialize();
 })
 
 //trigger redraw on modal click
@@ -45,16 +44,15 @@ $(document).on('click', '#location-button', function(){
   
   
   //gmaps initialization
-  
+  initialize();
    
   //redraw map once modal is open
   google.maps.event.addListenerOnce(map, 'idle', function() {
     google.maps.event.trigger(map, 'resize');
-    
+
   });
 
-  //recenter map on lat, long variable
-  setTimeout(recenterMap, 2000);
+  recenterMap();
 
 })
 
