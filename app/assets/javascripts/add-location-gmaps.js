@@ -61,10 +61,6 @@ $(document).on('click', '#location-button', function(){
     mapResized = false; //set the resize event variable to false
   });
 
-
-
-
-
   recenterMap();
 
 })
