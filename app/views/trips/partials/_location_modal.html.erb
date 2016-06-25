@@ -1,0 +1,42 @@
+<div class="modal fade" id="trip-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title page-title" id="myModalLabel">Add a Location</h4>
+      </div>
+      <div class="modal-body">
+        <!-- start form -->
+        <div class="mui-textfield col-md-6">
+          <input class="location-search" id="gmaps-input-address" type="text" placeholder="Search for a destination.." size="20"/>
+        </div>
+        <!-- start form -->
+        
+        <%= form_for @new_location, :remote => true do |f|  %>
+        <div class="mui-textfield hidden">
+          <legend>location</legend>
+          <%= f.text_field :city%>
+        </div>
+        <div class="mui-textfield hidden">
+          <legend>latitude</legend>
+          <%= f.text_field :lat%>
+        </div>
+        <div class="mui-textfield hidden">
+          <legend>longitude</legend>
+          <%= f.text_field :long%>
+        </div>
+        <%= f.hidden_field :trip_id, :value => @trip.id %>
+        
+        
+        <div id='gmaps-canvas'></div>
+        
+        <!-- end form -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="mui-btn mui-btn--raised mui-btn--default" data-dismiss="modal">Close</button>
+        <%= f.submit "Add Destination", :class => "mui-btn mui-btn--raised mui-btn--primary" %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>

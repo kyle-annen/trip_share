@@ -1,4 +1,4 @@
-
+//button that appears in the middle of the page bottom, when clicked, will scroll to top
 
 var scrollButton = function(){
 
@@ -22,5 +22,7 @@ var scrollButton = function(){
 	})
 };
 
+//load scrollbutton on page load
 $(document).ready(scrollButton);
+//loac scrollbutton on turbolinks page load
 $(document).on('page:load', scrollButton);

@@ -1,6 +1,6 @@
 
 //define the function for the debug button
-//the debug button toggles debug information for viewing in the document
+//the debug button toggles debug information for viewing in the document.
 var loadDebugButton = function(){
 	//add id to the debug panel
 	$(".debug_dump").attr('id', 'debug-panel');

@@ -63,5 +63,7 @@ $(document).on('click', '#location-button', function(){
 
   recenterMap();
 
+  
+
 })
 
