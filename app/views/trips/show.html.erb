@@ -7,7 +7,7 @@ image using rails image tag helper
       <%= image_tag @trip.image.url(:medium), :class => 'img-rounded' %>
     </div>
     <!-- 
-    Trip summary using react 
+    react component for listing the trip summary
     -->
     <div class="col-md-8 trip-summary">
       <%= react_component 'TripSummary', {data: @trip} %>
@@ -21,20 +21,23 @@ random stuff instead of fixing css
 <div class="mui-divider margin-top"></div>
 
 <!--
-location modal button
+location buttons from partial
 -->
 <%= render "trips/partials/location_buttons"%>
 
 <!--
-location modal
+location modal from partial
 -->
 <%= render "trips/partials/location_modal" %>
+
 <!--
 react component for listing the trip locations
 -->
 <%= react_component 'TripList', {data: @trip_locations} %>
+
 <!--
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDwcXunVemFYbtL-898MWQY11z7QE4cl70&signed_in=true&callback=initMap">
-</script>
--->
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDwcXunVemFYbtL-898MWQY11z7QE4cl70&libraries=places&signed_in=true&callback=initMap"></script>
+
+-->
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDwcXunVemFYbtL-898MWQY11z7QE4cl70&libraries=places">
