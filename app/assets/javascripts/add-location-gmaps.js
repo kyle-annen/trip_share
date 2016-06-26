@@ -37,7 +37,7 @@ function initialize() {
   };
   //set the map object to map variable
   map = new google.maps.Map(document.getElementById("gmaps-canvas"), mapProp);
-  autoComplete = new google.maps.places.Autocomplete(document.getElementById('gmaps-input'));
+  
 }
 
 //funciton to recenter the map
@@ -58,8 +58,7 @@ $(document).ready(function(){
 $(document).on('click', '#location-button', function(){
 
   
-  
-
+  autoComplete = new google.maps.places.Autocomplete(document.getElementById('gmaps-input'));
   //redraw map once when modal is opened
   google.maps.event.addListenerOnce(map, 'idle', function() {
     google.maps.event.trigger(map, 'resize');
@@ -75,9 +74,9 @@ $(document).on('click', '#location-button', function(){
   });
 
   
-
+  //when the place is changed.
   google.maps.event.addListener(autoComplete, 'place_changed', function() {
-    place = autocomplete.getPlace();
+    place = autoComplete.getPlace();
     if (place.geometry) {
        map.panTo(place.geometry.location);
        map.setZoom(15);
@@ -85,6 +84,7 @@ $(document).on('click', '#location-button', function(){
 });
 
   recenterMap();
+
 
 })
 
