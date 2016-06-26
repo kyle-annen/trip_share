@@ -4,7 +4,7 @@ var lat = -33.8665433;  // seattle lat
 var long = 151.1956316; // seattle long
 var mapResized = false; // variable to indicate when map should be recentered
 //location variables
-var place;
+var place = "";
 var autoComplete;
 //<--------------Variable Declaration End ---------------->
 
@@ -45,18 +45,28 @@ function recenterMap() {
   map.panTo(new google.maps.LatLng(lat, long));
 }
 
-//listener for 
+//function to clear the location data
+function clearGmapLocation() {
+  place = "";
+  $('#gmaps-input').val("");
+  $('#add-dest-button').prop('disabled', true);
+}
 
 
 //on document load, get the geolocation if available
 $(document).ready(function(){
-  getLocation();
-  initialize();
-})
+  
+});
+
+$(document).on('click', '#gmaps-input',function(){
+ clearGmapLocation();
+});
 
 //trigger redraw on modal click
 $(document).on('click', '#location-button', function(){
-
+  getLocation();
+  initialize();
+  clearGmapLocation();
   
   autoComplete = new google.maps.places.Autocomplete(document.getElementById('gmaps-input'));
   //redraw map once when modal is opened
@@ -76,11 +86,20 @@ $(document).on('click', '#location-button', function(){
   
   //when the place is changed.
   google.maps.event.addListener(autoComplete, 'place_changed', function() {
-    place = autoComplete.getPlace();
+    //set new place
+    place = autoComplete.getPlace(); //set new place
+    //if place has geometry, then pan and set zoom at geometry
     if (place.geometry) {
        map.panTo(place.geometry.location);
        map.setZoom(15);
     } 
+    //if the location exists, enable the add destination button
+    if (place = "") {
+      $('#add-dest-button').prop('disabled', true);
+    } else {
+      $('#add-dest-button').prop('disabled', false);
+    }
+
 });
 
   recenterMap();
