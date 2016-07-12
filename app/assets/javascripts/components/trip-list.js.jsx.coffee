@@ -7,7 +7,7 @@ Panel = ReactBootstrap.Panel
   getDefaultProps: ->
     triplocations: []
   render: ->
-    `<div class="container">
+    `<div className="container">
       <h2>Trip Itinerary</h2>
       <Table responsive>
         <thead>

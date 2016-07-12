@@ -4,7 +4,7 @@
   getDefaultProps:->
     trip: []
   render: ->
-    `<div class="trip-summary">
+    `<div className="trip-summary">
       <span>
         <h2>{this.props.data.name}</h2>
         <h3>{"$ ".concat(parseFloat(this.props.data.cost).toFixed(2))}</h3>

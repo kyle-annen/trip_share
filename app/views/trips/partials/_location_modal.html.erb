@@ -15,15 +15,15 @@
         <%= form_for @new_location, :remote => true do |f|  %>
         <div class="mui-textfield hidden">
           <legend>location</legend>
-          <%= f.text_field :city%>
+          <%= f.text_field :city, :id => 'loc-city'%>
         </div>
         <div class="mui-textfield hidden">
           <legend>latitude</legend>
-          <%= f.text_field :lat%>
+          <%= f.text_field :lat, :id => 'loc-lat'%>
         </div>
         <div class="mui-textfield hidden">
           <legend>longitude</legend>
-          <%= f.text_field :long%>
+          <%= f.text_field :long, :id => 'loc-long'%>
         </div>
         <%= f.hidden_field :trip_id, :value => @trip.id %>
         
