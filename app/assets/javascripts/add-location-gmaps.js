@@ -80,7 +80,9 @@ function initialize() {
 
     //set the form values to new place information
 
-    var formLat = place.geometry.location.lat();
+    formLat = place.geometry.location.lat();  
+    formLng = place.geometry.location.lng();
+    formName = place.name;
 
 
 
@@ -117,6 +119,14 @@ function initialize() {
         (place.address_components[2] && place.address_components[2].short_name || '')
       ].join(' ');
     }
+
+    //possibly add later
+    /*
+    var openingHours = '';
+    if (place.opening_hours.weekday_text) {
+      openingHours = place.opening_hours.weekday_text.reduce( (prev, curr) => prev + '<br>' + curr);
+    }
+    */
 
     infowindow.setContent('<div><strong>' + place.name + '</strong><br>' + address);
     infowindow.open(map, marker);

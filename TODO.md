@@ -1,11 +1,13 @@
 
 
 # Bug Fixes
-- fix scroll up button to appear when scroll down
+- fix scroll up button to appear when scroll down (done)
 - fix strange margin on the right of page
 - fix AWS S3 paperclip papercrop error
 - ensure ganalytics is working
 
+# Add Content
+- add a good footer, lack of a footer looks goofy
 
 
 
