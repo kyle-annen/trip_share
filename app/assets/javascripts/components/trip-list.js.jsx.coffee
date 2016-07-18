@@ -2,10 +2,28 @@ Table = ReactBootstrap.Table
 Panel = ReactBootstrap.Panel
 
 @TripList = React.createClass
+
+  displayName: 'TripListReact'
+
   getInitialState: ->
+    didFetchData: false
     tripLocations: @props.data
-  getDefaultProps: ->
-    triplocations: []
+
+  getDefaultProps: -> 
+    tripLocations: []
+
+  fetchLocations: ->
+    trip_url_id = @state.tripLocations[1].trip_id
+    fetchURL = '/locations/' + trip_url_id
+    console.log 'logging fetchURL for api endpoint'
+    console.log fetchURL
+    $.getJSON fetchURL, (data) => this.setState({tripLocations: data})
+
+  componentWillMount: ->
+    setInterval this.fetchLocations, 300
+  
+
+
   render: ->
     `<div className="container">
       <h2>Trip Itinerary</h2>
@@ -13,8 +31,10 @@ Panel = ReactBootstrap.Panel
         <thead>
           <tr>
             <th>City</th>
+            <th>State / Province</th>
             <th>Country</th>
-            <th>Arrival</th>
+            <th>Latitude</th>
+            <th>Longitude</th>
           </tr>  
         </thead>
         <tbody>
@@ -22,14 +42,3 @@ Panel = ReactBootstrap.Panel
         </tbody>
       </Table>
     </div>`
-     
-#          { this.state.triplocations.map((triplocation) => <TripLocation key={triplocation.id} record={triplocation}/> )}
-
-#ref = this.state.records;
-#for (i = 0, len = ref.length; i < len; i++) {
-#  record = ref[i];
-#  React.createElement(Record, {
-#    key: record.id,
-#    record: record
-#  });
-#}

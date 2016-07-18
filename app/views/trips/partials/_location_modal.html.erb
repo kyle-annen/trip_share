@@ -3,28 +3,43 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title page-title" id="myModalLabel">Add a Location</h4>
+        <h4 class="modal-title page-title" id="location-modal">Add a Location</h4>
       </div>
       <div class="modal-body">
-        <!-- start form -->
+      
         <div class="mui-textfield col-md-12">
           <input class="location-search" id="gmaps-input" type="text" placeholder="Search for a destination.." size="20"/>
         </div>
         <!-- start form -->
         
-        <%= form_for @new_location, :remote => true do |f|  %>
+        <%= form_for @new_location, 
+          :remote => true, 
+          :id => 'location-form' do |f|  %>
         <div class="mui-textfield hidden">
           <legend>location</legend>
           <%= f.text_field :city, :id => 'loc-city'%>
         </div>
+
+        <div class="mui-textfield hidden">
+          <legend>location</legend>
+          <%= f.text_field :state_province, :id => 'loc-state-province'%>
+        </div>
+
+        <div class="mui-textfield hidden">
+          <legend>location</legend>
+          <%= f.text_field :country, :id => 'loc-country'%>
+        </div>
+
         <div class="mui-textfield hidden">
           <legend>latitude</legend>
           <%= f.text_field :lat, :id => 'loc-lat'%>
         </div>
+
         <div class="mui-textfield hidden">
           <legend>longitude</legend>
-          <%= f.text_field :long, :id => 'loc-long'%>
+          <%= f.text_field :long, :id => 'loc-lng'%>
         </div>
+
         <%= f.hidden_field :trip_id, :value => @trip.id %>
         
         
@@ -34,7 +49,10 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="mui-btn mui-btn--raised mui-btn--default" data-dismiss="modal">Close</button>
-        <%= f.submit "Add Destination", :class => "mui-btn mui-btn--raised mui-btn--primary", :id => "add-dest-button" %>
+
+        <%= f.submit "Add Destination", 
+        :class => "mui-btn mui-btn--raised mui-btn--primary", :id => "add-dest-button"%>
+
       </div>
       <% end %>
     </div>

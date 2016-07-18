@@ -54,6 +54,8 @@ gem 'rails_12factor'
 gem 'sprockets'
 gem 'sprockets-es6', require: 'sprockets/es6'
 
+# cjsx compiler
+
 
 
 

@@ -27,8 +27,6 @@ class TripsController < ApplicationController
     end
   end
 
-
-
   def show
     @trip = Trip.find(params[:id])
     @trip_locations = Location.where(trip_id: params[:id])

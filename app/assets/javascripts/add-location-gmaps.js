@@ -3,15 +3,18 @@ var map;                // map variable for gmaps
 var lat = -33.8665433;  // seattle lat
 var long = 151.1956316; // seattle long
 var mapResized = false; // variable to indicate when map should be recentered
-//location variables
+//lgmaps variables
 var place;
 var backupPlace;
 var autocomplete = false;
 var InfoWindow;
 var marker;
+//location variables
 var formLat;
 var formLng;
 var formName;
+var formState;
+var formCountry;
 //<--------------Variable Declaration End ---------------->
 
 
@@ -78,13 +81,20 @@ function initialize() {
     place = autocomplete.getPlace(); //set new place
     backupPlace = place;             //set new place other variable, shitty hack because wtf is going on
 
-    //set the form values to new place information
-
+    
+    //set the form variables using data from place
     formLat = place.geometry.location.lat();  
     formLng = place.geometry.location.lng();
     formName = place.name;
+    formState = place.address_components[2].long_name;
+    formCountry = place.address_components[3].long_name;
 
-
+    //set the form values to new place information
+    $('#loc-city').val(formName);
+    $('#loc-state-province').val(formState);
+    $('#loc-country').val(formCountry);
+    $('#loc-lat').val(formLat);
+    $('#loc-lng').val(formLng);
 
     //if place has geometry, then pan and set zoom at geometry
     if (backupPlace.geometry) {
@@ -98,7 +108,7 @@ function initialize() {
       $('#add-dest-button').prop('disabled', false);
     }
 
-    /*
+    
     marker.setIcon({
       url: backupPlace.icon,
       size: new google.maps.Size(71, 71),
@@ -106,7 +116,7 @@ function initialize() {
       anchor: new google.maps.Point(17, 34),
       scaledSize: new google.maps.Size(35, 35)
     });
-    */
+    
     
 
 
@@ -128,7 +138,10 @@ function initialize() {
     }
     */
 
+
+    //set the content for the infowindow to display on the map
     infowindow.setContent('<div><strong>' + place.name + '</strong><br>' + address);
+    //display the infowindow
     infowindow.open(map, marker);
   });
 
@@ -152,11 +165,15 @@ $(document).on('click', '#gmaps-input',function(){
 
 //trigger redraw on modal click
 $(document).on('click', '#location-button', function(){
-  //getLocation();
-  //clearGmapLocation();
+  getLocation();
+  clearGmapLocation();
   initialize();
   recenterMap();
 })
 
-
+$(document).on('click', '#add-dest-button', function() {
+  $('#location-form').submit();
+  $('#add-dest-button').prop('disabled', true);
+  $('#trip-modal').modal('hide');
+})
 
