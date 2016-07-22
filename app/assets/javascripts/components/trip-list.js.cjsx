@@ -21,14 +21,12 @@ Panel = ReactBootstrap.Panel
     setInterval this.fetchLocations, 300
   
   render: ->
-    `<div>
-
+    <div>
       <div className="container-fluid">
         <h2 className="pull-left">Trip Itinerary</h2>
         <span><button type="button" className="mui-btn mui-btn--raised mui-btn--primary pull-right location-button" data-toggle="modal" data-target="#trip-modal" id="location-button">
         <span className="fa fa-globe" aria-hidden="true"></span> Add Destination</button></span>
       </div>
-
       <Table responsive>
         <thead>
           <tr>
@@ -41,4 +39,4 @@ Panel = ReactBootstrap.Panel
           { this.state.tripLocations.map((tripLocation) => <TripLocation key={tripLocation.id} tripLocation={tripLocation}/> )}
           { this.state.tripLocations.map((tripLocation) => <LocationButtons key={tripLocation.id} tripLocation={tripLocation}/> )}
       </Table>
-    </div>`
+    </div>

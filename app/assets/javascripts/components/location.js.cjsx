@@ -1,6 +1,6 @@
 @TripLocation = React.createClass
   render: ->
-    `<tbody>
+    <tbody>
 	    <tr>
 	      <td> {this.props.tripLocation.city} </td>
 	      <td> {this.props.tripLocation.lat} </td>
@@ -29,5 +29,5 @@
 	        <span className="fa fa-ticket" aria-hidden="true"></span> Get Tickets</button>
 	      </td>
 	    </tr>	
-    </tbody>`
+    </tbody>
  

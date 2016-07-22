@@ -55,7 +55,7 @@ gem 'sprockets'
 gem 'sprockets-es6', require: 'sprockets/es6'
 
 # cjsx compiler
-
+gem 'sprockets-coffee-react'
 
 
 

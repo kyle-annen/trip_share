@@ -1,15 +1,14 @@
-$(document).on('click', '#trip-resize-anchor', function(){
-	var button = $('#trip-resize-anchor i');
-	var buttonClass = button.attr('class').split(' ').pop();
-	var image = $('#trip-image');
 
-	if (buttonClass == "fa-plus") {
-		button.removeClass('fa-plus');
-		button.addClass('fa-minus');
-		image.removeClass('small-trip-image');
-	} else {
-		button.removeClass('fa-minus');
-		button.addClass('fa-plus');
-		image.addClass('small-trip-image');
-	}
+//function to resize trip main image
+//toggles the classes of button and image
+//classes located in trips.scss
+//targets located in trips/show.html.erb
+$(document).on('click', '#trip-resize-anchor', function(){
+	//variable declarations
+	var button = $('#trip-resize-anchor i');
+	var image = $('#trip-image');
+	//toggle states
+	button.toggleClass('fa-plus');
+	button.toggleClass('fa-minus');
+	image.toggleClass('small-trip-image');
 })
