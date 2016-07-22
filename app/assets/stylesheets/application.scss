@@ -161,7 +161,7 @@ html, body {
 
 .blurb-summary {
   font: bold 14px/35px Helevetica, Sans-Serif;
-  color: white; 
+  color: black; 
   background: rgb(0, 0, 0); /* fallback color */
   background: rgba(0, 0, 0, 0.5);
   padding: 0px 25px 0px 20px; 
@@ -186,8 +186,8 @@ html, body {
 
 
 .trip-summary {
-  min-width: 100px;
-  color: white;
+  min-width: 200px;
+  color: black;
 }
 
 .navbar-brand {
@@ -308,7 +308,7 @@ a > .fa {
 }
 
 .trip-page-header {
-   background-color: black;
+   background-color: white;
    margin: -15px;
    padding: -10px;
 }
@@ -410,4 +410,14 @@ a > .fa {
 //gmaps on modal fix trip#show
 .modal-backdrop {
   z-index: 10;
+}
+
+
+.table-container {
+  color: black;
+}
+
+.location-button {
+  display: inline-block;
+  margin-top: 20px;
 }

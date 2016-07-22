@@ -6,7 +6,6 @@ Panel = ReactBootstrap.Panel
   displayName: 'TripListReact'
 
   getInitialState: ->
-    didFetchData: false
     tripLocations: @props.data
 
   getDefaultProps: -> 
@@ -15,30 +14,31 @@ Panel = ReactBootstrap.Panel
   fetchLocations: ->
     trip_url_id = @state.tripLocations[1].trip_id
     fetchURL = '/locations/' + trip_url_id
-    console.log 'logging fetchURL for api endpoint'
-    console.log fetchURL
+    
     $.getJSON fetchURL, (data) => this.setState({tripLocations: data})
 
   componentWillMount: ->
     setInterval this.fetchLocations, 300
   
-
-
   render: ->
-    `<div className="container">
-      <h2>Trip Itinerary</h2>
+    `<div>
+
+      <div className="container-fluid">
+        <h2 className="pull-left">Trip Itinerary</h2>
+        <span><button type="button" className="mui-btn mui-btn--raised mui-btn--primary pull-right location-button" data-toggle="modal" data-target="#trip-modal" id="location-button">
+        <span className="fa fa-globe" aria-hidden="true"></span> Add Destination</button></span>
+      </div>
+
       <Table responsive>
         <thead>
           <tr>
             <th>City</th>
-            <th>State / Province</th>
-            <th>Country</th>
             <th>Latitude</th>
             <th>Longitude</th>
+            <th></th>
           </tr>  
         </thead>
-        <tbody>
           { this.state.tripLocations.map((tripLocation) => <TripLocation key={tripLocation.id} tripLocation={tripLocation}/> )}
-        </tbody>
+          { this.state.tripLocations.map((tripLocation) => <LocationButtons key={tripLocation.id} tripLocation={tripLocation}/> )}
       </Table>
     </div>`

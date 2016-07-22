@@ -83,11 +83,23 @@ function initialize() {
 
     
     //set the form variables using data from place
-    formLat = place.geometry.location.lat();  
+    
+    formLat = place.geometry.location.lat();      
     formLng = place.geometry.location.lng();
     formName = place.name;
-    formState = place.address_components[2].long_name;
-    formCountry = place.address_components[3].long_name;
+
+    if (place.address_components[2].long_name) {
+      formState = place.address_components[2].long_name;
+    } else {
+      formState = "-";
+    }
+
+    if (place.address_components[3].long_name) {
+      formCountry = place.address_components[3].long_name;
+    } else {
+      formCountry = "-"
+    }
+    
 
     //set the form values to new place information
     $('#loc-city').val(formName);

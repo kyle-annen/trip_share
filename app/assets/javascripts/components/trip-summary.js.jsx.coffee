@@ -4,10 +4,8 @@
   getDefaultProps:->
     trip: []
   render: ->
-    `<div className="trip-summary">
-      <span>
-        <h2>{this.props.data.name}</h2>
-        <h3>{"$ ".concat(parseFloat(this.props.data.cost).toFixed(2))}</h3>
-        <h4>{this.props.data.blurb}</h4> 
-      </span>
+    `<div className="">
+        <h2 className="trip-summary">{this.props.data.name}</h2>
+        <h3 className="trip-summary">{"$ ".concat(parseFloat(this.props.data.cost).toFixed(2))}</h3>
+        <h4 className="trip-summary">{this.props.data.blurb}</h4> 
     </div>`
