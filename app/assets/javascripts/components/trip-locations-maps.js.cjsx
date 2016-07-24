@@ -39,9 +39,9 @@
 
   createMap: ->
     mapOptions =
-      minZoom: 9
       zoom: 10
       center: new google.maps.LatLng(this.state.tripLocations[0].lat, this.state.tripLocations[0].long)
+      streetViewControl: false
       
         
       
