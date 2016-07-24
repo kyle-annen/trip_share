@@ -3,25 +3,19 @@ image using rails image tag helper
 -->
 <div class="row trip-page-header">
   <div class="row trip-page-header-content-container">
-    <div class="trip-page-image pull-left col-sm-4">
 
+    <div class="trip-page-image pull-left col-sm-4">
       <div class="main-trip-image">
         <div class="image-resize-button hidden" id="trip-image-resize-button"><button class="mui-btn mui-btn--fab mui-btn--default mui-btn--small" id="trip-resize-anchor"><i class="fa fa-minus" aria-hidden="true"></i></div>
         <%= image_tag @trip.image.url(:large), :class => 'img-rounded img-responsive', :id => 'trip-image' %>
       </div>
-      
-        <%= react_component 'TripSummary', {data: @trip} %>
-       
-        <!--
-        <%= react_component 'TripLocationMap', {data: @trip_locations} %>
-        -->
-        
-      
+      <%= react_component 'TripSummary', {data: @trip} %>
     </div>
     <!--
     react component for listing the trip summary
     -->
     <div class="container table-container col-sm-8">
+      <%= react_component 'TripLocationMap', {data: @trip_locations} %>
       <%= react_component 'TripList', {data: @trip_locations} %>
     </div>
   </div>
