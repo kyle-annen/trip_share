@@ -19,7 +19,7 @@ var scrollButton = function(){
 	//when scroll button clicked, scroll to top
 	$(document).on("click", "#scroll-up-switch", function(){
 		$('html, body').animate({scrollTop: 0}, 'slow');
-	})
+	});
 };
 
 //load scrollbutton on page load

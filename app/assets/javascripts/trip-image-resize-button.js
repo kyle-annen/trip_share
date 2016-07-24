@@ -11,4 +11,12 @@ $(document).on('click', '#trip-resize-anchor', function(){
 	button.toggleClass('fa-plus');
 	button.toggleClass('fa-minus');
 	image.toggleClass('small-trip-image');
-})
+});
+
+//function to hide button unless image is moused over.
+$(document).on('mouseenter', '.main-trip-image', function() {
+	$('#trip-image-resize-button').removeClass('hidden');
+});
+$(document).on('mouseleave', '.main-trip-image', function() {
+	$('#trip-image-resize-button').addClass('hidden');
+});

@@ -22,7 +22,7 @@
     $.getJSON fetchURL, (data) => this.setState({tripLocations: data})
 
   componentWillMount: ->
-    #setInterval this.fetchLocations, 300
+    this.fetchLocations 300
 
 
 
