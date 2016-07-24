@@ -58,7 +58,7 @@ function initialize() {
   //close the infowindow to clear the map of clutter
   infowindow.close();
   //set the marker invisible
-  marker.setVisible(false);
+  marker.setVisible(true);
   
   //redraw map once when modal is opened
   google.maps.event.addListenerOnce(map, 'idle', function() {

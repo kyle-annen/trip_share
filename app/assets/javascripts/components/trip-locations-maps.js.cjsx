@@ -16,13 +16,13 @@
     tripLocations: []
 
   fetchLocations: ->
-    trip_url_id = @state.tripLocations[1].trip_id
+    trip_url_id = @state.tripLocations[0].trip_id
     fetchURL = '/locations/' + trip_url_id
     
     $.getJSON fetchURL, (data) => this.setState({tripLocations: data})
 
   componentWillMount: ->
-    this.fetchLocations 300
+    this.fetchLocations
 
 
 
@@ -39,7 +39,6 @@
     google.maps.event.addListener @loc_map, 'dragend', => @handleDragEnd()
 
   createMap: ->
-    coords = 
     mapOptions =
       minZoom: 9
       zoom: 10
@@ -49,7 +48,7 @@
 
   createMarker: ->
     marker = new google.maps.Marker
-      position: new google.maps.LatLng(this.props.tripLocations[0].lat, this.props.tripLocations[0].long)
+      position: new google.maps.LatLng(this.state.tripLocations[0].lat, this.state.tripLocations[0].long)
       map: @loc_map
 
   createInfoWindow: ->
