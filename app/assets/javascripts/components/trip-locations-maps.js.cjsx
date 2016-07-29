@@ -13,22 +13,18 @@
     tripLocations: @props.data
 
   fetchLocations: ->
-    trip_url_id = @state.tripLocations[0].trip_id
+    trip_url_id = window.location.href.split("/").pop().split(" ").pop()
     fetchURL = '/locations/' + trip_url_id
     
     $.getJSON fetchURL, (data) => this.setState({tripLocations: data})
 
   componentWillMount: ->
-    setInterval(this.fetchLocations, 300)
-
-
+    setInterval this.fetchLocations 300
 
   componentDidMount: ->
     # create the map, marker and infoWindow after the component has
     # been rendered because we need to manipulate the DOM for Google =(
     @loc_map = @createMap()
-    
-    
     @loc_marker = @createMarker()
     @loc_infoWindow = @createInfoWindow()
     
@@ -48,9 +44,9 @@
     new google.maps.Map(@refs.trip_map_canvas.getDOMNode(), mapOptions)
 
   createMarker: ->
-      marker = new google.maps.Marker
-        position: new google.maps.LatLng(this.state.tripLocations[0].lat, this.state.tripLocations[0].long)
-        map: @loc_map
+    marker = new google.maps.Marker
+      position: new google.maps.LatLng(this.state.tripLocations[0].lat, this.state.tripLocations[0].long)
+      map: @loc_map
 
   createInfoWindow: ->
     contentString = ("<div class='InfoWindow'>" + this.state.tripLocations[0].city + "</div>")

@@ -12,7 +12,7 @@ Panel = ReactBootstrap.Panel
     tripLocations: []
 
   fetchLocations: ->
-    trip_url_id = @state.tripLocations[1].trip_id
+    trip_url_id = window.location.href.split("/").pop().split(" ").pop()
     fetchURL = '/locations/' + trip_url_id
     
     $.getJSON fetchURL, (data) => this.setState({tripLocations: data})
