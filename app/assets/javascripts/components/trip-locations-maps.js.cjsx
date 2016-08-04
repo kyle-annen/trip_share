@@ -24,9 +24,14 @@
   componentDidMount: ->
     # create the map, marker and infoWindow after the component has
     # been rendered because we need to manipulate the DOM for Google =(
+    console.log(typeof @state.tripLocations[0])
+
+    @bounds = new google.maps.LatLngBounds();
     @loc_map = @createMap()
-    @loc_marker = @createMarker()
-    @loc_infoWindow = @createInfoWindow()
+    #@loc_infoWindow = @createInfoWindow()
+    if typeof @state.tripLocations[0] != 'undefined'
+      for location in @state.tripLocations
+        @createMarker(location)
     
     # have to define google maps event listeners here too
     # because we can't add listeners on the map until its created
@@ -34,19 +39,25 @@
     google.maps.event.addListener @loc_map, 'dragend', => @handleDragEnd()
 
   createMap: ->
+    if typeof this.state.tripLocations[0] == 'undefined'
+      initLat = 0
+      initLong = 0
+    else
+      initLat = this.state.tripLocations[0].lat
+      initLong = this.state.tripLocations[0].long
     mapOptions =
       zoom: 10
-      center: new google.maps.LatLng(this.state.tripLocations[0].lat, this.state.tripLocations[0].long)
+      center: new google.maps.LatLng(initLat, initLong)
       streetViewControl: false
-      
-        
-      
     new google.maps.Map(@refs.trip_map_canvas.getDOMNode(), mapOptions)
 
-  createMarker: ->
+  createMarker: (location)->
+    
     marker = new google.maps.Marker
-      position: new google.maps.LatLng(this.state.tripLocations[0].lat, this.state.tripLocations[0].long)
+      position: new google.maps.LatLng(location.lat, location.long)
       map: @loc_map
+    @bounds.extend(marker.getPosition())
+    @loc_map.fitBounds(@bounds)
 
   createInfoWindow: ->
     contentString = ("<div class='InfoWindow'>" + this.state.tripLocations[0].city + "</div>")
