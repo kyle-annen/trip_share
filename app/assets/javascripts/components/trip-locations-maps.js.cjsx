@@ -24,8 +24,6 @@
   componentDidMount: ->
     # create the map, marker and infoWindow after the component has
     # been rendered because we need to manipulate the DOM for Google =(
-    console.log(typeof @state.tripLocations[0])
-
     @bounds = new google.maps.LatLngBounds();
     @loc_map = @createMap()
     #@loc_infoWindow = @createInfoWindow()
@@ -66,9 +64,6 @@
 
   updateMarkers: ->
       locCount = @state.tripLocations.length
-      console.log('markerCount = ' + @markerCount)
-      console.log('locCount = ' + locCount)
-      console.log('range = ' + @markerCount - 1 + "-" + locCount - 1)
       if @markerCount < locCount
         for num in [@markerCount - 1...locCount]
           @createMarker(@state.tripLocations[num])
