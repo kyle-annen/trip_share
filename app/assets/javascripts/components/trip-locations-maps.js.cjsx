@@ -16,10 +16,10 @@
     trip_url_id = window.location.href.split("/").pop().split(" ").pop()
     fetchURL = '/locations/' + trip_url_id
     
-    $.getJSON fetchURL, (data) => this.setState({tripLocations: data})
+    $.getJSON fetchURL, (data) => @setState({tripLocations: data})
 
   componentWillMount: ->
-    setInterval this.fetchLocations 300
+    setInterval @fetchLocations, 300
 
   componentDidMount: ->
     # create the map, marker and infoWindow after the component has
@@ -32,11 +32,16 @@
     if typeof @state.tripLocations[0] != 'undefined'
       for location in @state.tripLocations
         @createMarker(location)
-    
+    @markerCount = @state.tripLocations.length
     # have to define google maps event listeners here too
     # because we can't add listeners on the map until its created
     google.maps.event.addListener @loc_map, 'zoom_changed', => @handleZoomChange()
     google.maps.event.addListener @loc_map, 'dragend', => @handleDragEnd()
+
+    
+
+  
+    setInterval @updateMarkers, 300
 
   createMap: ->
     if typeof this.state.tripLocations[0] == 'undefined'
@@ -58,6 +63,16 @@
       map: @loc_map
     @bounds.extend(marker.getPosition())
     @loc_map.fitBounds(@bounds)
+
+  updateMarkers: ->
+      locCount = @state.tripLocations.length
+      console.log('markerCount = ' + @markerCount)
+      console.log('locCount = ' + locCount)
+      console.log('range = ' + @markerCount - 1 + "-" + locCount - 1)
+      if @markerCount < locCount
+        for num in [@markerCount - 1...locCount]
+          @createMarker(@state.tripLocations[num])
+        @markerCount = locCount
 
   createInfoWindow: ->
     contentString = ("<div class='InfoWindow'>" + this.state.tripLocations[0].city + "</div>")
