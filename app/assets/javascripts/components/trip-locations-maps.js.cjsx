@@ -17,6 +17,7 @@
     fetchURL = '/locations/' + trip_url_id
     
     $.getJSON fetchURL, (data) => @setState({tripLocations: data})
+    console.log(this.state.tripLocations)
 
   componentWillMount: ->
     setInterval @fetchLocations, 300
@@ -27,18 +28,11 @@
     @bounds = new google.maps.LatLngBounds();
     @loc_map = @createMap()
     #@loc_infoWindow = @createInfoWindow()
-    if typeof @state.tripLocations[0] != 'undefined'
-      for location in @state.tripLocations
-        @createMarker(location)
-    @markerCount = @state.tripLocations.length
     # have to define google maps event listeners here too
     # because we can't add listeners on the map until its created
     google.maps.event.addListener @loc_map, 'zoom_changed', => @handleZoomChange()
     google.maps.event.addListener @loc_map, 'dragend', => @handleDragEnd()
-
-    
-
-  
+    @locationNumbers = 0
     setInterval @updateMarkers, 300
 
   createMap: ->
@@ -54,20 +48,30 @@
       streetViewControl: false
     new google.maps.Map(@refs.trip_map_canvas.getDOMNode(), mapOptions)
 
-  createMarker: (location)->
+  createMarker: (location, locNum)->
     
+    iconSrc = 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=' + locNum + '|FE6256|000000'
     marker = new google.maps.Marker
       position: new google.maps.LatLng(location.lat, location.long)
       map: @loc_map
+      icon: iconSrc
     @bounds.extend(marker.getPosition())
     @loc_map.fitBounds(@bounds)
 
   updateMarkers: ->
-      locCount = @state.tripLocations.length
-      if @markerCount < locCount
-        for num in [@markerCount - 1...locCount]
-          @createMarker(@state.tripLocations[num])
-        @markerCount = locCount
+    
+    if (typeof @state.tripLocations[0] != 'undefined' && @locationNumbers < @state.tripLocations.length) 
+      locNum = null
+      for num in [0...@state.tripLocations.length]
+        locNum = num + 1
+        location = @state.tripLocations[num]
+        @createMarker(location, locNum)
+      @locationNumbers = @state.tripLocations.length
+
+  
+  
+
+
 
   createInfoWindow: ->
     contentString = ("<div class='InfoWindow'>" + this.state.tripLocations[0].city + "</div>")
@@ -76,10 +80,12 @@
       anchor: @loc_marker
       content: contentString
 
+
+
+
   handleZoomChange: ->
-    # something happens when the zoom changes
-    # this is where it's handled
+    
 
   handleDragEnd: ->
-    # something else happens when the map is dragged somewhere
-    # this is where that's handled
+    
+    

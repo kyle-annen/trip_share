@@ -21,4 +21,4 @@ var loadDebugButton = function(){
 //load the js on page load
 $(document).ready(loadDebugButton);
 //load the js on turbolink transition
-$(document).on('page:load', loadDebugButton);
+$(document).on('turbolinks:load', loadDebugButton);

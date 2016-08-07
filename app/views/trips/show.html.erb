@@ -10,12 +10,13 @@ image using rails image tag helper
         <%= image_tag @trip.image.url(:large), :class => 'img-rounded img-responsive', :id => 'trip-image' %>
       </div>
       <%= react_component 'TripSummary', {data: @trip} %>
+      <%= react_component 'TripLocationMap', {data: @trip_locations} %>
     </div>
     <!--
     react component for listing the trip summary
     -->
     <div class="container table-container col-sm-8">
-      <%= react_component 'TripLocationMap', {data: @trip_locations} %>
+      
       <%= react_component 'TripList', {data: @trip_locations} %>
     </div>
   </div>

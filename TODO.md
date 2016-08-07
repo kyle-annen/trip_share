@@ -1,8 +1,14 @@
 
+# Functionality
+- add drag and drop reordering
+- add numbers to the table and markers
+- 
+
+
 
 # Bug Fixes
 - fix scroll up button to appear when scroll down (done)
-- fix strange margin on the right of page
+- fix strange margin on the right of page (done)
 - fix AWS S3 paperclip papercrop error
 - ensure ganalytics is working
 
