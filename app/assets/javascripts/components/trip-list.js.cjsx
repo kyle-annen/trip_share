@@ -23,7 +23,7 @@ Panel = ReactBootstrap.Panel
   render: ->
     <div>
       <div className="container-fluid">
-        <h2 className="pull-left">Trip Itinerary</h2>
+        <h2 className="pull-left page-title">Trip Itinerary</h2>
         <span><button type="button" className="mui-btn mui-btn--raised mui-btn--primary pull-right location-button" data-toggle="modal" data-target="#trip-modal" id="location-button">
         <span className="fa fa-globe" aria-hidden="true"></span> Add Destination</button></span>
       </div>
@@ -37,6 +37,5 @@ Panel = ReactBootstrap.Panel
           </tr>  
         </thead>
           { this.state.tripLocations.map((tripLocation) => <TripLocation key={tripLocation.id} tripLocation={tripLocation}/> )}
-          { this.state.tripLocations.map((tripLocation) => <LocationButtons key={tripLocation.id} tripLocation={tripLocation}/> )}
       </Table>
     </div>

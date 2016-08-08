@@ -17,10 +17,9 @@
     fetchURL = '/locations/' + trip_url_id
     
     $.getJSON fetchURL, (data) => @setState({tripLocations: data})
-    console.log(this.state.tripLocations)
 
   componentWillMount: ->
-    setInterval @fetchLocations, 300
+    setInterval(@fetchLocations, 300)
 
   componentDidMount: ->
     # create the map, marker and infoWindow after the component has
@@ -33,7 +32,7 @@
     google.maps.event.addListener @loc_map, 'zoom_changed', => @handleZoomChange()
     google.maps.event.addListener @loc_map, 'dragend', => @handleDragEnd()
     @locationNumbers = 0
-    setInterval @updateMarkers, 300
+    setInterval(@updateMarkers, 300)
 
   createMap: ->
     if typeof this.state.tripLocations[0] == 'undefined'

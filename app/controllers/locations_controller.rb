@@ -23,6 +23,15 @@ class LocationsController < ApplicationController
     render json: @trip_locations
   end
 
+  def destroy
+    @location = Location.find(params[:id])
+    @location.destroy
+    head :no_content
+    respond_to do |format|
+      format.js
+    end
+  end
+
   
 
 
