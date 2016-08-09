@@ -15,7 +15,7 @@
 	        <button type="button" className="mui-btn mui-btn--raised mui-btn--primary" data-toggle="modal" data-target="" id="">
 	        <span className="fa fa-bed" aria-hidden="true"></span></button>  
 	      
-	        <button type="button" className="mui-btn mui-btn--raised mui-btn--primary" data-toggle="modal" data-target="" id="location-button">
+	        <button type="button" className="mui-btn mui-btn--raised mui-btn--primary" data-toggle="modal" data-target="#food-modal" id="location-button">
 	        <span className="fa fa-cutlery" aria-hidden="true"></span></button>
 	         
 	      </td>
