@@ -57,6 +57,10 @@ gem 'sprockets-es6', require: 'sprockets/es6'
 # cjsx compiler
 gem 'sprockets-coffee-react'
 
+# Use httpParty for building a zomato api
+gem 'httparty'
+
+
 
 
 # Use ActiveModel has_secure_password
