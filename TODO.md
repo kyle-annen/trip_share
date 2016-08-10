@@ -33,3 +33,7 @@
 
 #start iOSX app
 - react native?
+
+a = Zomato.new('f47a72ab00afe64aab78b9919ee3d427')
+
+a.getlocations('orofino', '46.479347', '-116.2551395')

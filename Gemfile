@@ -60,6 +60,9 @@ gem 'sprockets-coffee-react'
 # Use httpParty for building a zomato api
 gem 'httparty'
 
+# Use HashDot for dot syntaxt usage with hashes
+gem 'hash_dot'
+
 
 
 
