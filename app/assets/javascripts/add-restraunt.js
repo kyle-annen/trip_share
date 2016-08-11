@@ -1,37 +1,41 @@
-//zomato api for restraunt adding
-// turns out the request needs to be made by the server, need to rewrite in ruby in food controller?
-var zomatoAPI = function(query, lat, lon, count) {
-	//variables for api
-	var apiKey = "f47a72ab00afe64aab78b9919ee3d427";
-	var baseURL = "https://developers.zomato.com/api/v2.1/";
-	var location = "locations?";
-	var queryTag = "&query=";
-	var latTag = "&lat=";
-	var lonTag = "&lon=";
-	var countTag = "&count=";
-	//returns the JSON object for the location based on Zomatos documentation
-	//https://developers.zomato.com/documentation#!/location/locations
-	var locationURL = baseURL + queryTag + query + latTag + lat + lonTag + lon + countTag + count;
-
-	var location = $.ajax({
-		xhrFields: {
-        	withCredentials: true
-    	},
-		type: 'GET',
-		headers: {
-			'Accept': 'application/json',
-            'user_key': apiKey
-		},
-		url: locationURL
-	}).done(function(data){
-		return data;
-	});
-
-	console.log(location);
-
-};
 
 
+$(document).on('click', '.add-restaurant-button', function() {
+	$('#location-select').empty();
+	$('#location-select').html('<h3 class="animate-flicker text-center">Loading..</h3>');
+
+	var loc_id = $(this).attr('id').split('-').pop();
+	
+	var query = $('#location-city-' + loc_id).attr('class').split("_").pop();
+	console.log("----New Zomato Locations Query----")
+	console.log("query: " + query);
+	
+	var lat = $('#location-lat-' + loc_id).attr('class').split("_").pop();
+	console.log("lat: " + lat);
+	
+	var lon = $('#location-lon-' + loc_id).attr('class').split("_").pop();
+	console.log("lon: " + lon);
+	
+	var restaurants_url = "/zomato?api_type=locations" + 
+	"&query=" + query + 
+	"&lat=" + lat + 
+	"&lon=" + lon;
+	
+	var locations;
+
+	$.ajax({
+		dataType: "json",
+		url: restaurants_url,
+		success: function(data) { 
+			$('#location-select').empty();
+			locations = data; 
+			console.log(locations[0]);
+
+			$('#location-select').append(JSON.stringify(locations, null, '  '));
+		}
+	})
+	
+});
 
 
 

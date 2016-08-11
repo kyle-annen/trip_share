@@ -38,4 +38,48 @@
 	margin: 0 auto;
 }
 
+@keyframes flickerAnimation {
+  0%   { opacity:1; }
+  50%  { opacity:0; }
+  100% { opacity:1; }
+}
+@-o-keyframes flickerAnimation{
+  0%   { opacity:1; }
+  50%  { opacity:0; }
+  100% { opacity:1; }
+}
+@-moz-keyframes flickerAnimation{
+  0%   { opacity:1; }
+  50%  { opacity:0; }
+  100% { opacity:1; }
+}
+@-webkit-keyframes flickerAnimation{
+  0%   { opacity:1; }
+  50%  { opacity:0; }
+  100% { opacity:1; }
+}
+.animate-flicker {
+   -webkit-animation: flickerAnimation 1s infinite;
+   -moz-animation: flickerAnimation 1s infinite;
+   -o-animation: flickerAnimation 1s infinite;
+    animation: flickerAnimation 1s infinite;
+}
+
+.location-row-enter {
+  opacity: 0.01;
+}
+
+.location-row-enter.location-row-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+
+.location-row-leave {
+  opacity: 1;
+}
+
+.location-row-leave.location-row-leave-active {
+  opacity: 0.01;
+  transition: opacity 300ms ease-in;
+}
 

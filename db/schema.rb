@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160109201309) do
+ActiveRecord::Schema.define(version: 20160811073057) do
 
   create_table "locations", force: :cascade do |t|
     t.integer  "trip_id"
@@ -27,6 +27,13 @@ ActiveRecord::Schema.define(version: 20160109201309) do
     t.integer  "raw_offset"
     t.datetime "created_at",                                 null: false
     t.datetime "updated_at",                                 null: false
+  end
+
+  create_table "restaurants", force: :cascade do |t|
+    t.integer  "res_id"
+    t.integer  "diners"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "trips", force: :cascade do |t|

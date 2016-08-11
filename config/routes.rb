@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
  
   resources :locations
+  resources :restaurants
+  resources :zomato
   root to: 'static_pages#home'
 
 

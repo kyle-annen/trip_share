@@ -19,7 +19,7 @@ $(document).on('click', '.location-button-delete', function(){
 	locationId = 'confirm-delete-location-' + locNum;
 	console.log('location id to add to delete confirmation button: ' + locationId);
 	$('.confirm-delete-location-button').attr('id', locationId);
-	locCity = $('#location-city-' + locNum).attr('class').split('-').pop();
+	locCity = $('#location-city-' + locNum).attr('class').split('_').pop();
 	$('#delete-modal-content').html(locCity);
 
 });

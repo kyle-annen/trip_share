@@ -86,7 +86,7 @@ function initialize() {
     
     formLat = place.geometry.location.lat();      
     formLng = place.geometry.location.lng();
-    formName = place.name;
+    formName = place.formatted_address;
 
     if (place.address_components[2].long_name) {
       formState = place.address_components[2].long_name;
