@@ -20,13 +20,15 @@ $(document).on('click', '.add-restaurant-button', function() {
 		dataType: "json",
 		url: locations_url,
 		success: function(data) { 
-			$('#location-select').empty();	
 			locations = data; 
+			$('#location-select').empty();
 			$('#location-select').append(JSON.stringify(locations, null, '  '));
 			$('#location-select').append('<br/>');
 			$('#location-select').append('<h3 class="animate-flicker text-center">Loading location details..</h3>');
 			var entity_type = locations[0].entity_type;
 			var entity_id = locations[0].entity_id;
+
+			
 
 			var restaurants_url = "/zomato?api_type=location_details" +
 			"&entity_id=" + entity_id +
@@ -37,6 +39,7 @@ $(document).on('click', '.add-restaurant-button', function() {
 				url: restaurants_url,
 				success: function(data) {
 					location_details = data;
+					$('#location-select').empty();
 					$('#location-select').append(JSON.stringify(location_details, null, '  '));
 				}
 			});
@@ -45,6 +48,8 @@ $(document).on('click', '.add-restaurant-button', function() {
 	
 
 });
+
+
 
 
 
