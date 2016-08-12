@@ -5,7 +5,7 @@ class Zomato
 	require 'hash_dot'
 
 	#assign the variable to be accessed through dot notation
-	attr_accessor :locations, :locationdetails, :restaurants
+	attr_accessor :locations, :locationdetails, :location_details
 
 	#initializes with default API key, one can be provided
 	#headers and base uri should not change
@@ -17,7 +17,7 @@ class Zomato
 
 	#sets location guesses based on the query to @locations
 	#query and latitude/longitude are required
-	#hash returned can be viewd in Zomato documentation
+	#hash returned can be viewed in Zomato documentation
 	#https://developers.zomato.com/documentation#!/location/locations
 	def getlocations(query='seattle', lat='47.6906021', lon='-122.3778869', count=100)		
 		zomato_locations_url = @base_uri + 
@@ -33,24 +33,18 @@ class Zomato
 		end
 	end
 
-	#Sets the locations details to @restaurants
-	#Use the array index of @locations of the choosen location from the search
-	# in order to return the location details for the chosen location.
-	#Hash returned to @restaurants can be examined in Zomato documentation
+	#Sets the locations details to @location_details
 	#https://developers.zomato.com/documentation#!/location/location_details
-	def getlocationdetails(location_index=0)
-		entity = @locations[location_index]
-		entity_id = entity.entity_id
-		entity_type = entity.entity_type
+	def getlocationdetails(entity_id, entity_type)
 		zomato_location_details_url = @base_uri + 
 			"/location_details?entity_id=#{entity_id}&entity_type=#{entity_type}"
 		response = HTTParty.get(zomato_location_details_url, headers: @headers)
 		if response.success?
-			@restaurants = response.parsed_response
+			@location_details = response.parsed_response
 		else
 			raise response.response
 		end
-		return @restaurants
+		return @location_details
 	end
 
 
