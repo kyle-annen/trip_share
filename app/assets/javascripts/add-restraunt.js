@@ -2,7 +2,7 @@
 
 $(document).on('click', '.add-restaurant-button', function() {
 	$('#location-select').empty();
-	$('#location-select').html('<h3 class="animate-flicker text-center">Loading location data..</h3>');
+	$('#location-select').html('<h3 class="animate-flicker text-center">Filling up beer mugs...</h3>');
 
 	var loc_id = $(this).attr('id').split('-').pop();	
 	var query = $('#location-city-' + loc_id).attr('class').split("_").pop();
@@ -20,11 +20,7 @@ $(document).on('click', '.add-restaurant-button', function() {
 		dataType: "json",
 		url: locations_url,
 		success: function(data) { 
-			locations = data; 
-			$('#location-select').empty();
-			$('#location-select').append(JSON.stringify(locations, null, '  '));
-			$('#location-select').append('<br/>');
-			$('#location-select').append('<h3 class="animate-flicker text-center">Loading location details..</h3>');
+			locations = data;
 			var entity_type = locations[0].entity_type;
 			var entity_id = locations[0].entity_id;
 
