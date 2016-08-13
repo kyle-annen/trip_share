@@ -7,16 +7,66 @@ $tile-height: 130px;
 .restaurant-tile {
 	margin: 20px 30px 20px 30px;
 	background-color: #0086b3;
-	-webkit-box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.75);
-	   -moz-box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.75);
-	        box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.75);
+	// -webkit-box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.75);
+	//    -moz-box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.75);
+	//         box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.75);
+	border: 3px solid lightgrey;
+    border-radius: 7px;
 }
 
-.restaurant-tile > .col-md-4 {
+.restaurant-tile > .col-md-4:nth-child(1){
 	padding-left: 0px;
 }
 
 .res-thumb {
-	max-height: $tile-height;
+	width: 100%;
+	border-bottom-left-radius: 6px;
 }
+
+.restaurant-tile > .col-sm-12:nth-child(1) {
+	border-top-left-radius: 6px;
+	border-top-right-radius: 6px;
+	border-bottom-left-radius: 0px;
+	border-bottom-left-radius: 0px;
+}
+
+.res-venue-name {
+	font-family: 'Lobster', cursive;
+	color: white;
+}
+
+.res-venue-content {
+	color: white;
+}
+
+.price-range {
+	color: white;
+	font-size: 20px;
+	font-style: bold;
+}
+
+.price-amount {
+	color: white;
+	font-size: 16px;
+}
+
+
+.rating-container	 {
+	width: 100%;
+	border-top-left-radius: 5px;
+	margin: 0;
+	padding: 0;
+	background-color: white;
+}
+
+.res-venue-rating {
+	font-size: 20px;
+	font-style: bold;
+	margin-left: 5px;
+	font-family: 'Lobster', cursive;
+	
+}
+
+
+
 
