@@ -26,7 +26,7 @@ Panel = ReactBootstrap.Panel
         <h2 className="pull-left page-title">Trip Itinerary</h2>
         <span className="share-trip">
           <a href="#">
-            <i class="fa fa-facebook"></i><span> </span>
+            <i className="fa fa-facebook"></i><span> </span>
           </a>
           <a href="#">
             <i className="fa fa-pinterest"></i>

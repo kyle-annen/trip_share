@@ -1,3 +1,22 @@
 // Place all the styles related to the restaurants controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+$tile-height: 130px;
+
+.restaurant-tile {
+	margin: 20px 30px 20px 30px;
+	background-color: #0086b3;
+	-webkit-box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.75);
+	   -moz-box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.75);
+	        box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.75);
+}
+
+.restaurant-tile > .col-md-4 {
+	padding-left: 0px;
+}
+
+.res-thumb {
+	max-height: $tile-height;
+}
+

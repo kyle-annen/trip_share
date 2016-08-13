@@ -1,3 +1,13 @@
+# APIs to intergrate
+- Groupon
+- City Grid???
+- Uber
+- Google Flights / Kayak
+- BeerAdvocate
+- Hotels.com / Booking.com / AirBnB / Hostels
+
+# Food feature
+- use setTimeout and fadeIn to make restraunts appear in pretty order
 
 # Functionality
 - add drag and drop reordering
@@ -24,7 +34,7 @@
 - Convert all coffeescript to ES6
 - integrate google places
 - integrate airBnB, booking.com, some sort of travel
-- integrate openTable, UrbanSpoon
+- integrate openTable, UrbanSpoon (Zomato)
 - enable sharing of reservations
 
 
@@ -33,7 +43,3 @@
 
 #start iOSX app
 - react native?
-
-a = Zomato.new('f47a72ab00afe64aab78b9919ee3d427')
-
-a.getlocations('orofino', '46.479347', '-116.2551395')
