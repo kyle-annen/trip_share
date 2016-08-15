@@ -3,19 +3,23 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 $tile-height: 130px;
+$tile-content: #0086b3;
 
 .restaurant-tile {
 	margin: 20px 30px 20px 30px;
-	background-color: #0086b3;
-	// -webkit-box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.75);
-	//    -moz-box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.75);
-	//         box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.75);
-	border: 3px solid lightgrey;
+	//background-color: #0086b3;
+	background-color: white;
+	-webkit-box-shadow: 0px 0px 3px 0px rgba(176,174,176,1);
+	   -moz-box-shadow: 0px 0px 3px 0px rgba(176,174,176,1);
+	        box-shadow: 0px 0px 3px 0px rgba(176,174,176,1);
+	border: 1px solid grey;
     border-radius: 7px;
 }
 
 .restaurant-tile > .col-md-4:nth-child(1){
 	padding-left: 0px;
+	padding-right: 0px;
+	border-right: 1px solid grey;
 }
 
 .res-thumb {
@@ -32,21 +36,23 @@ $tile-height: 130px;
 
 .res-venue-name {
 	font-family: 'Lobster', cursive;
-	color: white;
+	color: $tile-content;
+	font-size: 30px;
+	font-style: bold;
 }
 
 .res-venue-content {
-	color: white;
+	color: $tile-content;
 }
 
 .price-range {
-	color: white;
+	color: $tile-content;
 	font-size: 20px;
 	font-style: bold;
 }
 
 .price-amount {
-	color: white;
+	color: $tile-content;
 	font-size: 16px;
 }
 
@@ -54,19 +60,36 @@ $tile-height: 130px;
 .rating-container	 {
 	width: 100%;
 	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
 	margin: 0;
 	padding: 0;
 	background-color: white;
+	border-right: 1px solid 	grey;
 }
 
 .res-venue-rating {
-	font-size: 20px;
+	color: white;
+	font-size: 24px;
 	font-style: bold;
 	margin-left: 5px;
-	font-family: 'Lobster', cursive;
-	
+	font-family: 'Lobster', cursive;	
 }
 
+.res-venue-votes {
+	color: white;
+	font-size: 24px;
+	font-family: 'Lobster', cursive;
+	margin-right: 5px;
+}
+
+.cuisine-tile {
+	height: 20px;
+	min-width: 25px;
+	background-color: lightblue;
+	border-radius: 8px;
+	margin: 5px 5px;
+	padding: 0px 10px;
+}
 
 
 

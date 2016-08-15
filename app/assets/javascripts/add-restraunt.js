@@ -69,35 +69,49 @@ function restraunt_tile(res_object) {
 	var res_thumb = res.featured_image;
 	var venue_name = res.name + ', ' + res_object.restaurant.location.locality;
 	var venue_address = res.location.address;
-	var venue_cuisines = res.cuisines;
+	var venue_cuisines = res.cuisines.split(', ');
 	var venue_price_range = Array(res.price_range + 1).join("$");
 	var venue_price_amount =  res.currency + res.average_cost_for_two;
-
-	var rating_style = 'style="color:#' + res.user_rating.rating_color + ';"'; 
+	var rating_style = 'style="background-color:#' + res.user_rating.rating_color + ';"'; 
 	var rating_value = res.user_rating.aggregate_rating;
 	var rating_text = res.user_rating.rating_text;
+	var total_votes = res.user_rating.votes; 
+	var cusine_tiles =	"";
+
+	$.each(venue_cuisines, function(index, value) {
+		var innerhtml = '<div class="cuisine-tile pull-left">' + 
+		value + '</div>';
+		cusine_tiles += innerhtml;
+	});
 
 
 	var html = 	'' + 
 	'<div class="restaurant-tile row" id=' + res_id + '>' +
 		'<div class="col-md-4 col-sm-12 res-thumb-container">' +
-			'<div class="rating-container">' +
-				'<span class="res-venue-content res-venue-rating"' + rating_style +	'>' + 
+			'<div class="rating-container" ' + rating_style + '>' +
+				'<span class="res-venue-content res-venue-rating">' + 
 					rating_value + " - " + rating_text +
+				'</span>' +
+				'<span class="res-venue-content pull-right res-venue-votes">' + "Votes: " + total_votes +
 				'</span>' +
 			'</div>' +
 			'<img class="res-thumb img-responsive" src="' + res_thumb + '">' + 
 			'</img>' + 
 		'</div>' +
-		'<div class="res-content col-md-4 col-sm-6">' +
-			
-			'<h3 class="res-venue-name">' + venue_name + '</h3>' +
-			'<h6 class="res-venue-content">' + venue_address + '</h6>' +
-			'<h6 class="res-venue-content">' + venue_cuisines + '</h6>' +
-		'</div>' +
-		'<div class="col-md-4 col-sm-6"></br>' +
-			'<span class="res-venue-content price-range">' + venue_price_range + '  </span>' +
-			'<span class="res-venue-content price-amount"> Cost for two: ' + venue_price_amount + '</span>' +
+		'<div class="container row">' +
+			'<div class="res-content col-md-4 col-sm-6">' +
+				
+				'<h3 class="res-venue-name">' + venue_name + '</h3>' +
+				'<h6 class="res-venue-content">' + venue_address + '</h6>' +
+				'<h6 class="res-venue-content">' + '</h6>' +
+			'</div>' +
+			'<div class="col-md-4 col-sm-6"></br>' +
+				'<span class="res-venue-content price-range">' + venue_price_range + '  </span>' +
+				'<span class="res-venue-content price-amount"> Cost for two: ' + venue_price_amount + '</span>' +
+			'</div>' +
+			'<div class="col-md-8 col-sm-12">' +
+				cusine_tiles +
+			'</div>' +
 		'</div>' +
 	'</div>';
 
