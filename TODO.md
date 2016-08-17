@@ -1,3 +1,11 @@
+# Order of Attack
+- Fix jcrop on heroku
+- enable saving of restaurants
+- create view of restaurants in table overview
+- Add "locations near to search"
+- Add 
+
+
 # APIs to intergrate
 - Groupon
 - City Grid???
