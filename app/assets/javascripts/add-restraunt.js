@@ -65,7 +65,7 @@ $(document).on('click', '.add-restaurant-button', function() {
 
 function restraunt_tile(res_object) {
 	var res = res_object.restaurant;
-	var res_id = "res_id_" + res.res_id;
+	var res_id = "res_id_" + res.id;
 	var res_thumb = res.featured_image;
 	var venue_name = res.name + ', ' + res_object.restaurant.location.locality;
 	var venue_address = res.location.address;
@@ -79,14 +79,14 @@ function restraunt_tile(res_object) {
 	var cusine_tiles =	"";
 
 	$.each(venue_cuisines, function(index, value) {
-		var innerhtml = '<div class="cuisine-tile pull-left">' + 
+		var innerhtml = '<div class="cuisine-tile pull-left container-fluid">' + 
 		value + '</div>';
 		cusine_tiles += innerhtml;
 	});
 
 
 	var html = 	'' + 
-	'<div class="restaurant-tile row" id=' + res_id + '>' +
+	'<div class="restaurant-tile row">' +
 		'<div class="col-md-4 col-sm-12 res-thumb-container">' +
 			'<div class="rating-container" ' + rating_style + '>' +
 				'<span class="res-venue-content res-venue-rating">' + 
@@ -107,9 +107,30 @@ function restraunt_tile(res_object) {
 			'</div>' +
 			'<div class="col-md-4 col-sm-6"></br>' +
 				'<span class="res-venue-content price-range">' + venue_price_range + '  </span>' +
-				'<span class="res-venue-content price-amount"> Cost for two: ' + venue_price_amount + '</span>' +
+				'<span class="res-venue-content price-amount"> Cost for two: ' + venue_price_amount + '</span></br>' +
+	
+				'<div class="mui-select">' +
+					'<select>' +
+						'<option>1</option>' +
+						'<option>2</option>' +
+						'<option>3</option>' +
+						'<option>4</option>' +
+						'<option>5</option>' +
+						'<option>6</option>' +
+						'<option>7</option>' +
+						'<option>8</option>' +
+						'<option>9</option>' +
+						'<option>10</option>' +
+					'</select>' +
+				'</div>' +
+
+				'<span class="guest-number-label"># of guests</span></br>' +
+				'<button class="mui-btn mui-btn--raised mui-btn--primary add-food-tile-button"  id=' + res_id + '>' + 
+					'Add Restaurant</button>' + 
 			'</div>' +
-			'<div class="col-md-8 col-sm-12">' +
+		'</div>' +
+		'<div class="row">' +
+			'<div class="col-md-12">' +
 				cusine_tiles +
 			'</div>' +
 		'</div>' +
@@ -118,7 +139,12 @@ function restraunt_tile(res_object) {
 	return html;
 } 
 
+$(document).on('click', '.add-food-tile-button', function() {
+	var add_res_button_id = $(this).attr('id');
+	var res_id = parseInt(add_res_button_id.split('_').pop());
+	console.log(res_id);
 
+})
 
 
 

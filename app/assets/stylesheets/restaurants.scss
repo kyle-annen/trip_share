@@ -87,8 +87,22 @@ $tile-content: #0086b3;
 	min-width: 25px;
 	background-color: lightblue;
 	border-radius: 8px;
-	margin: 5px 5px;
-	padding: 0px 10px;
+	margin: 5px 12px;
+}
+
+.powered-by-zomato {
+	font-size: 16px;
+	color: #0086b3;
+	font-family: 'Lobster', cursive;
+	margin: -12px 0;	
+}
+
+.add-food-tile-button {
+	padding-right: 10px;
+}
+
+.mui-select {
+	width: 50px;
 }
 
 
