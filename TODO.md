@@ -1,6 +1,14 @@
+# Current
+- implement controller for add-food
+- implement form for add-food
+- write js to fill and submit form
+
+
+
+
 # Order of Attack
-- Fix jcrop on heroku
 - enable saving of restaurants
+- Fix jcrop on heroku
 - create view of restaurants in table overview
 - Add "locations near to search"
 - Add 
