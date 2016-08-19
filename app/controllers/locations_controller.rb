@@ -7,8 +7,10 @@ class LocationsController < ApplicationController
   def create
     @location = Location.new(location_params)
     if @location.save
-      format.html { redirect_to @trip, :"data-no-turbolink" => true }
-      format.js { render action: 'show', status: :created, location: @location}
+      respond_to do |format|
+        format.html { redirect_to @trip, :"data-no-turbolink" => true }
+        format.js { render action: 'show', status: :created, location: @location}
+      end
     else
       redirect_to @trip, :"data-no-turbolink" => true
     end

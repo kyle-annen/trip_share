@@ -54,4 +54,9 @@ class TripsController < ApplicationController
     :country, :lat, :long, :arrival_date_time, :time_zone_id, 
     :time_zone_name, :dst_offset, :raw_offset)
   end
+
+  def restaurant_params
+    params.require(:restaurant).permit(:res_id, :diners, :location_id)
+  end
+
 end

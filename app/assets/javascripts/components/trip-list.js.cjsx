@@ -19,6 +19,7 @@ Panel = ReactBootstrap.Panel
 
   componentWillMount: ->
     setInterval this.fetchLocations, 300
+   
   
   render: ->
     <div>

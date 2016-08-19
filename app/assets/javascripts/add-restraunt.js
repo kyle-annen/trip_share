@@ -143,12 +143,14 @@ $(document).on('click', '.add-food-tile-button', function() {
 	if ( isNaN(diner_count) == true) {
 		$(diner_form_group).append('<h4 style="color: red">Enter a number please!</h4>');
 	} else {
-		$('#res-id-form').text(res_id);
-		console.log(res_id);
-		$('#res-diners-form').text(diner_count);
-		console.log(diner_count);
-		$('#res-location-id-form').text(location_id);
-		console.log(location_id);
+		$('#res-id-form').val(res_id);
+		$('#res-diners-form').val(diner_count);
+		$('#res-location-id-form').val(location_id);
+		$('#submit-res-form-button').trigger('click');
+		$('#food-modal').modal('hide');
+		
+
+
 	}
 
 });

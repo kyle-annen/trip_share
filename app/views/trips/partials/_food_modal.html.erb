@@ -23,26 +23,27 @@
           :remote => true, 
           :id => 'restaurant-form' do |f|  %>
         <div class="mui-textfield hidden">
-          <legend>location</legend>
+          <legend>restaurant id</legend>
           <%= f.text_field :res_id, :id => 'res-id-form'%>
         </div>
 
         <div class="mui-textfield hidden">
-          <legend>location</legend>
+          <legend>diners</legend>
           <%= f.text_field :diners, :id => 'res-diners-form'%>
         </div>
 
         <div class="mui-textfield hidden">
-          <legend>location</legend>
+          <legend>location id</legend>
           <%= f.text_field :location_id, :id => 'res-location-id-form'%>
         </div>
-
+        <%= f.submit "Add location", :class =>"mui-btn mui-btn--raised mui-btn--primary hidden", :id => 'submit-res-form-button' %>
              
         <!-- end form -->
       </div>
       <div class="modal-footer">
         <button type="button" class="mui-btn mui-btn--raised mui-btn--default" data-dismiss="modal">Close</button>
       </div>
+      
       <% end %>
     </div>
   </div>
