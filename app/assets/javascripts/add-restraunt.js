@@ -15,7 +15,7 @@ $(document).on('click', '.add-restaurant-button', function() {
 	"&query=" + query + 
 	"&lat=" + lat + 
 	"&lon=" + lon;
-	
+	$('#location-id').text(loc_id);
 	var locations;
 	var location_details;
 
@@ -52,7 +52,7 @@ $(document).on('click', '.add-restaurant-button', function() {
 					console.log(current_area);	
 					$('#restaurant-display-title').text(current_area);
 					$.each(top_restaurants, function(index, object) {
-						$('#top-restaurants').hide().append(restraunt_tile(object)).fadeIn(500);
+						$('#top-restaurants').hide().append(restaurant_tile(object)).fadeIn(500);
 					});
 				}
 			});
@@ -63,9 +63,10 @@ $(document).on('click', '.add-restaurant-button', function() {
 });
 
 
-function restraunt_tile(res_object) {
+function restaurant_tile(res_object) {
 	var res = res_object.restaurant;
 	var res_id = "res_id_" + res.id;
+	var diner_id = "diner_id_" + res.id;
 	var res_thumb = res.featured_image;
 	var venue_name = res.name + ', ' + res_object.restaurant.location.locality;
 	var venue_address = res.location.address;
@@ -98,33 +99,23 @@ function restraunt_tile(res_object) {
 			'<img class="res-thumb img-responsive" src="' + res_thumb + '">' + 
 			'</img>' + 
 		'</div>' +
-		'<div class="container row">' +
-			'<div class="res-content col-md-4 col-sm-6">' +
+		'<div class="col-md-8 col-sm-12">' +
+			'<div class="res-content col-md-6 col-sm-6">' +
 				
 				'<h3 class="res-venue-name">' + venue_name + '</h3>' +
 				'<h6 class="res-venue-content">' + venue_address + '</h6>' +
 				'<h6 class="res-venue-content">' + '</h6>' +
 			'</div>' +
-			'<div class="col-md-4 col-sm-6"></br>' +
+			'<div class="col-md-6 col-sm-6"></br>' +
 				'<span class="res-venue-content price-range">' + venue_price_range + '  </span>' +
 				'<span class="res-venue-content price-amount"> Cost for two: ' + venue_price_amount + '</span></br>' +
 	
-				'<div class="mui-select">' +
-					'<select>' +
-						'<option>1</option>' +
-						'<option>2</option>' +
-						'<option>3</option>' +
-						'<option>4</option>' +
-						'<option>5</option>' +
-						'<option>6</option>' +
-						'<option>7</option>' +
-						'<option>8</option>' +
-						'<option>9</option>' +
-						'<option>10</option>' +
-					'</select>' +
-				'</div>' +
-
-				'<span class="guest-number-label"># of guests</span></br>' +
+				'<form ' + 'id="diner_form_' + res.id + '">' +
+				  '<div class="form-group" id="diner_form_group_' + res.id + '">' +
+				    '<label for="diner_count">Number of people eating</label>' +
+				    '<input type="text" class="form-control" id=' + diner_id + ' placeholder="Number of Guests">' +
+				  '</div>' +
+				'</form>' +
 				'<button class="mui-btn mui-btn--raised mui-btn--primary add-food-tile-button"  id=' + res_id + '>' + 
 					'Add Restaurant</button>' + 
 			'</div>' +
@@ -142,10 +133,22 @@ function restraunt_tile(res_object) {
 $(document).on('click', '.add-food-tile-button', function() {
 	var add_res_button_id = $(this).attr('id');
 	var res_id = parseInt(add_res_button_id.split('_').pop());
-	console.log(res_id);
+	var location_id = parseInt($('#location-id').text());
+	var diner_form = "#diner_count_form_" + res_id;
+	var diner_form_group = "#diner_form_group_" + res_id;
 
-})
+	var diner_ref = '#diner_id_' + res_id;
+	var diner_count = Math.floor(parseInt($(diner_ref).val()));
 
+	if ( isNaN(diner_count) == true) {
+		$(diner_form_group).append('<h4 style="color: red">Enter a number please!</h4>');
+	} else {
+		$('#res-id-form').text(res_id);
+		console.log(res_id);
+		$('#res-diners-form').text(diner_count);
+		console.log(diner_count);
+		$('#res-location-id-form').text(location_id);
+		console.log(location_id);
+	}
 
-
-	
+});

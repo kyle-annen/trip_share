@@ -32,6 +32,7 @@ class TripsController < ApplicationController
     @trip_locations = Location.where(trip_id: params[:id])
     @new_location = Location.new
     @new_location.trip_id = @trip.id
+    @new_restaurant = Restaurant.new
   end
 
   def index
