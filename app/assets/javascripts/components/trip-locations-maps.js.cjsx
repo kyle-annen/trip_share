@@ -21,6 +21,7 @@
   componentWillMount: ->
     setInterval(@fetchLocations, 300)
     
+    
 
   componentDidMount: ->
     # create the map, marker and infoWindow after the component has

@@ -9,22 +9,22 @@ $tile-content: #0086b3;
 	margin: 20px 30px 20px 30px;
 	//background-color: #0086b3;
 	background-color: white;
-	-webkit-box-shadow: 0px 0px 3px 0px rgba(176,174,176,1);
-	   -moz-box-shadow: 0px 0px 3px 0px rgba(176,174,176,1);
-	        box-shadow: 0px 0px 3px 0px rgba(176,174,176,1);
-	border: 1px solid grey;
+	-webkit-box-shadow: 2px 2px 7px 3px rgba(158,158,158,1);
+	   -moz-box-shadow: 2px 2px 7px 3px rgba(158,158,158,1);
+            box-shadow: 2px 2px 7px 3px rgba(158,158,158,1);
     border-radius: 7px;
 }
 
 .restaurant-tile > .col-md-4:nth-child(1){
 	padding-left: 0px;
 	padding-right: 0px;
-	border-right: 1px solid grey;
+	//border-right: 1px solid grey;
 }
 
 .res-thumb {
 	width: 100%;
 	border-bottom-left-radius: 6px;
+	border-bottom-right-radius: 6px;
 }
 
 .restaurant-tile > .col-sm-12:nth-child(1) {
@@ -64,7 +64,7 @@ $tile-content: #0086b3;
 	margin: 0;
 	padding: 0;
 	background-color: white;
-	border-right: 1px solid 	grey;
+	color:black;
 }
 
 .res-venue-rating {
@@ -85,9 +85,9 @@ $tile-content: #0086b3;
 .cuisine-tile {
 	height: 20px;
 	min-width: 25px;
-	background-color: lightblue;
+	background-color: lightgrey;
 	border-radius: 8px;
-	margin: 5px 12px;
+	margin: 5px 12px 5px 12px;
 }
 
 .powered-by-zomato {
@@ -104,6 +104,5 @@ $tile-content: #0086b3;
 .mui-select {
 	width: 50px;
 }
-
 
 

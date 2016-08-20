@@ -17,7 +17,12 @@ class LocationsController < ApplicationController
   end
 
   def show
-    @trip_locations = Location.where(trip_id: params[:id])
+    @trip_locations = Location.where(trip_id: params[:id]).as_json
+
+    @trip_locations.each do |location|
+      restaurants = Restaurant.where(location_id: location.id).as_json
+      location[:restaurants] = restaurants
+    end
     render json: @trip_locations
   end
 

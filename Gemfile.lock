@@ -63,6 +63,7 @@ GEM
     autoprefixer-rails (6.2.1)
       execjs
       json
+    awesome_print (1.7.0)
     aws-sdk (2.3.9)
       aws-sdk-resources (= 2.3.9)
     aws-sdk-core (2.3.9)
@@ -74,6 +75,10 @@ GEM
       babel-source (>= 4.0, < 6)
       execjs (~> 2.0)
     bcrypt (3.1.10)
+    better_errors (2.1.1)
+      coderay (>= 1.0.0)
+      erubis (>= 2.6.6)
+      rack (>= 0.9.0)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
     bootstrap-sass (3.3.6)
@@ -85,6 +90,7 @@ GEM
       activesupport (>= 3.0)
     cocaine (0.5.8)
       climate_control (>= 0.0.3, < 1.0)
+    coderay (1.1.1)
     coffee-rails (4.1.1)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.1.x)
@@ -104,13 +110,35 @@ GEM
       responders
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
+    em-websocket (0.5.1)
+      eventmachine (>= 0.12.9)
+      http_parser.rb (~> 0.6.0)
     erubis (2.7.0)
+    eventmachine (1.2.0.1)
     execjs (2.6.0)
+    ffi (1.9.14)
     font-awesome-sass (4.6.2)
       sass (>= 3.2)
+    formatador (0.2.5)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
+    guard (2.14.0)
+      formatador (>= 0.2.4)
+      listen (>= 2.7, < 4.0)
+      lumberjack (~> 1.0)
+      nenv (~> 0.1)
+      notiffany (~> 0.0)
+      pry (>= 0.9.12)
+      shellany (~> 0.0)
+      thor (>= 0.18.1)
+    guard-compat (1.2.1)
+    guard-livereload (2.5.2)
+      em-websocket (~> 0.5)
+      guard (~> 2.8)
+      guard-compat (~> 1.0)
+      multi_json (~> 1.8)
     hash_dot (2.0.2)
+    http_parser.rb (0.6.0)
     httparty (0.14.0)
       multi_xml (>= 0.5.2)
     i18n (0.7.0)
@@ -130,10 +158,16 @@ GEM
       railties (>= 3.2.16)
     json (1.8.3)
     json_pure (1.8.3)
+    listen (3.1.5)
+      rb-fsevent (~> 0.9, >= 0.9.4)
+      rb-inotify (~> 0.9, >= 0.9.7)
+      ruby_dep (~> 1.2)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
+    lumberjack (1.0.10)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
+    method_source (0.8.2)
     mime-types (2.99)
     mimemagic (0.3.0)
     mini_portile2 (2.0.0)
@@ -142,14 +176,24 @@ GEM
       sass (~> 3.3)
     multi_json (1.11.2)
     multi_xml (0.5.5)
+    nenv (0.3.0)
     nokogiri (1.6.7.1)
       mini_portile2 (~> 2.0.0.rc2)
+    notiffany (0.1.1)
+      nenv (~> 0.1)
+      shellany (~> 0.0)
     orm_adapter (0.5.0)
     papercrop (0.3.0)
       jquery-rails
       paperclip (>= 3.4)
       rails (>= 3.1)
     pg (0.18.3)
+    pry (0.10.4)
+      coderay (~> 1.1.0)
+      method_source (~> 0.8.1)
+      slop (~> 3.4)
+    pry-rails (0.3.4)
+      pry (>= 0.9.10)
     puma (3.4.0)
     rack (1.6.4)
     rack-test (0.6.3)
@@ -184,6 +228,9 @@ GEM
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
     rake (10.4.2)
+    rb-fsevent (0.9.7)
+    rb-inotify (0.9.7)
+      ffi (>= 0.5.0)
     rdoc (4.2.1)
       json (~> 1.4)
     react-bootstrap-rails (0.27.3)
@@ -191,6 +238,7 @@ GEM
     responders (2.1.0)
       railties (>= 4.2.0, < 5)
     rmagick (2.15.4)
+    ruby_dep (1.4.0)
     sass (3.4.20)
     sass-rails (5.0.4)
       railties (>= 4.0.0, < 5.0)
@@ -201,6 +249,8 @@ GEM
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
+    shellany (0.0.1)
+    slop (3.6.0)
     spring (1.6.1)
     sprockets (3.5.2)
       concurrent-ruby (~> 1.0)
@@ -244,12 +294,16 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  awesome_print
   aws-sdk
+  better_errors
   bootstrap-sass (~> 3.3.6)
   byebug
   coffee-rails (~> 4.1.0)
   devise
   font-awesome-sass
+  guard
+  guard-livereload (~> 2.5)
   hash_dot
   httparty
   jbuilder (~> 2.0)
@@ -260,6 +314,7 @@ DEPENDENCIES
   paperclip!
   papercrop
   pg
+  pry-rails
   puma
   rails (= 4.2.4)
   rails_12factor

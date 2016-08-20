@@ -7,8 +7,10 @@
 $(document).on('click','.location-menu-button', function() {
 	buttonId = $(this).attr('id').split('-').pop();
 	menuBarId = '#location-menu-bar-' + buttonId;
+	resBarId = '.location-res-bar-' + buttonId;
 	console.log(menuBarId);
 	$(menuBarId).toggleClass('hidden');
+	
 });
 
 //functions for the delete button

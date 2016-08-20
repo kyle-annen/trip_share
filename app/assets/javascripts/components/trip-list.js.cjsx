@@ -2,7 +2,6 @@ Table = ReactBootstrap.Table
 Panel = ReactBootstrap.Panel
 
 @TripList = React.createClass
-
   displayName: 'TripListReact'
 
   getInitialState: ->
@@ -60,6 +59,6 @@ Panel = ReactBootstrap.Panel
             <th></th>
           </tr>  
         </thead>
-          { this.state.tripLocations.map((tripLocation) => <TripLocation key={tripLocation.id} tripLocation={tripLocation}/> )}
+          { this.state.tripLocations.map((tripLocation) => <TripListLocationRow key={tripLocation.id} tripLocation={tripLocation}/> )}
       </Table>
     </div>
