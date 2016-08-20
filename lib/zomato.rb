@@ -19,7 +19,7 @@ class Zomato
 	#query and latitude/longitude are required
 	#hash returned can be viewed in Zomato documentation
 	#https://developers.zomato.com/documentation#!/location/locations
-	def getlocations(query='seattle', lat='47.6906021', lon='-122.3778869', count=100)		
+	def get_locations(query='seattle', lat='47.6906021', lon='-122.3778869', count=100)		
 		zomato_locations_url = @base_uri + 
 			"/locations?query=#{query}&lat=#{lat}&lon=#{lon}&count=#{count}"
 		response = HTTParty.get(zomato_locations_url, headers: @headers)
@@ -35,7 +35,7 @@ class Zomato
 
 	#Sets the locations details to @location_details
 	#https://developers.zomato.com/documentation#!/location/location_details
-	def getlocationdetails(entity_id, entity_type)
+	def get_location_details(entity_id, entity_type)
 		zomato_location_details_url = @base_uri + 
 			"/location_details?entity_id=#{entity_id}&entity_type=#{entity_type}"
 		response = HTTParty.get(zomato_location_details_url, headers: @headers)
@@ -46,6 +46,22 @@ class Zomato
 		end
 		return @location_details
 	end
+
+	def get_restaurant_details(res_id)
+		zomato_restaurant_details_url = @base_uri +
+			"/restaurant?res_id=#{res_id}"
+		response = HTTParty.get(zomato_restaurant_details_url, headers: @headers)
+		if response.success?
+			@restaurant_details = response.parsed_response
+		else
+			raise response.response
+		end
+		return @restaurant_details
+	end
+
+
+
+
 
 
 
