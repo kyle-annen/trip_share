@@ -26,14 +26,14 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
 gem 'bootstrap-sass', '~> 3.3.6'
 # Use paperclip for image upload
-gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
+gem "paperclip", "~> 5.0.0"
 gem 'aws-sdk'
 gem 'rmagick'
 
 # Use papercrop for image cropping to 3:2 aspect ratio
 gem 'papercrop'
 
-# Gems used in pagination, consider changing to Kaminari
+# Gems useherokud in pagination, consider changing to Kaminari
 gem 'will_paginate'
 gem 'will_paginate-bootstrap'
 
