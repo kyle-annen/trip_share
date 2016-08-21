@@ -99,3 +99,26 @@
   color: #00863;
 }
 
+.res-row {
+  border: 1px solid #e6f5ff;
+  background-color: #e6f5ff;
+  border-radius: 5px;
+  padding: 8px 3px;
+}
+
+.res-row-thumb {
+  height: 50px;
+}
+
+.res-row-name {
+  color: #0086B3;
+  font-style: bold;
+  font-family: 'Lobster', cursive;
+  font-size: 18px;
+}
+
+.res-row-rating-text {
+  font-style: bold;
+  font-family: 'Lobster', cursive;
+  font-size: 18px;
+}

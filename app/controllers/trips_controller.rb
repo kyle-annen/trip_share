@@ -33,7 +33,7 @@ class TripsController < ApplicationController
 
     @trip_locations.each do |location|
       restaurants = Restaurant.where(location_id: location.id).as_json
-      location[:restaurants] = restaurants
+      location[:restaurants] = restaurants.as_json
     end
 
     @new_location = Location.new
@@ -62,7 +62,7 @@ class TripsController < ApplicationController
   end
 
   def restaurant_params
-    params.require(:restaurant).permit(:res_id, :diners, :location_id)
+    params.require(:restaurant).permit(:res_id, :diners, :location_id, :api_type)
   end
 
 end
