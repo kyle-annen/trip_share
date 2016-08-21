@@ -193,9 +193,17 @@ html, body {
 
 .navbar-brand {
   font-family: 'Lobster', cursive;
-  font-size: 3em;
-  color: #0086b3;
-  text-shadow: 2px 2px 1px  white;
+  font-size: 4.5em;
+  color: #0086b3 !important;
+  text-shadow: 
+    -1px -1px 1px  #004b66,
+     1px -1px 1px  #004b66,
+    -1px  1px 1px  #004b66,
+     1px  1px 1px  #004b66,
+     3px  3px 6px  grey;
+
+
+
 }
 
 .page-title {
