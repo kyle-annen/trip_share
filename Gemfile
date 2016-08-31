@@ -27,7 +27,7 @@ gem 'devise'
 gem 'bootstrap-sass', '~> 3.3.6'
 # Use paperclip for image upload
 gem "paperclip", "~> 5.0.0"
-gem 'aws-sdk', "~>2.00"
+gem 'aws-sdk', '~> 2.3'
 gem 'rmagick'
 
 # Use papercrop for image cropping to 3:2 aspect ratio
