@@ -291,7 +291,7 @@ PLATFORMS
 
 DEPENDENCIES
   awesome_print
-  aws-sdk (~> 2.00)
+  aws-sdk (~> 2.3)
   better_errors
   bootstrap-sass (~> 3.3.6)
   byebug
