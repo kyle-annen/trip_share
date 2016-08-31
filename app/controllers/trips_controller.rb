@@ -5,10 +5,33 @@ class TripsController < ApplicationController
   end
 
   def create
+
+    #get crop parameters from params as hash
+    @cropparams = JSON.parse(trip_params[:crop_data])
+    #get temp location of image from form (frontend)
+    @tempimagepath = trip_params[:image].path()
+    #get crop parameters as variables
+    @x = @cropparams.x
+    @y = @cropparams.y
+    @width = @cropparams.width
+    @height = @cropparams.height
+    #create Minimagick item using temp file location
+    @tripimage = MiniMagick::Image.open(@tempimagepath)
+    #crop the Minimagick instance using parameters from front
+    #end crop, using string interpolation.  Saved image will 
+    #be further cropped by Paperclip, can be viewed in the
+    #Trip model
+    @tripimage.crop("#{@width}x#{@height}+#{@x}+#{@y}")
+    #write the cropped image to the original, overwriting
+    @tripimage.write(@tempimagepath)
+    #pass all parameters to create trip
     @trip = Trip.new(trip_params)
+    #set the trip user id to the current user id
     @trip.user_id = current_user.id
+    #if parameters are validated, save and send to trip page with 
+    #alert, else send back to the form
     if @trip.save
-      render 'crop'
+      redirect_to @trip, notice: 'Trip successfully created.'
     else
       render 'new'
     end
@@ -52,7 +75,7 @@ class TripsController < ApplicationController
     params.require(:trip).permit(:name, :image, :blurb, 
       :image_original_w, :image_original_h, :image_box_w, 
       :image_aspect, :image_crop_x, :image_crop_y, :image_crop_w, 
-      :image_crop_h)
+      :image_crop_h, :crop_data)
   end
 
   def location_params

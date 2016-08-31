@@ -159,6 +159,7 @@ GEM
     method_source (0.8.2)
     mime-types (2.99)
     mimemagic (0.3.2)
+    mini_magick (4.5.1)
     mini_portile2 (2.0.0)
     minitest (5.8.3)
     mui-sass (0.3.0)
@@ -305,6 +306,7 @@ DEPENDENCIES
   jquery-rails
   jquery-turbolinks
   jquery-ui-rails
+  mini_magick
   mui-sass
   paperclip (~> 5.0.0)
   papercrop

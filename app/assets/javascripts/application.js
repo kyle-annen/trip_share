@@ -22,3 +22,4 @@
 //= require mui
 //= require jquery.jcrop
 //= require papercrop
+// Use croppie for cropping

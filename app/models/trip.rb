@@ -1,4 +1,5 @@
 class Trip < ActiveRecord::Base
+  cattr_accessor :current
   belongs_to :user
   has_many :locations
   has_many :restaurants, :through => :location
@@ -9,7 +10,6 @@ class Trip < ActiveRecord::Base
   has_attached_file :image, 
     styles: {large: "600x400>", medium: "300x200>", thumb: "100x75>" }, 
     default_url: "public/images/:style/missing.png"
-  crop_attached_file :image, :aspect => "3:2"
   ###
   # validates_attachment :image, 
   #   content_type: {content_type: ["image/jpeg", "image/png"]}

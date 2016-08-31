@@ -33,7 +33,7 @@ gem 'rmagick'
 # Use papercrop for image cropping to 3:2 aspect ratio
 gem 'papercrop'
 
-# Gems useherokud in pagination, consider changing to Kaminari
+# Gems used in pagination, consider changing to Kaminari
 gem 'will_paginate'
 gem 'will_paginate-bootstrap'
 
@@ -62,6 +62,10 @@ gem 'httparty'
 
 # Use HashDot for dot syntaxt usage with hashes
 gem 'hash_dot'
+
+# Use minimagick to crop images
+
+gem 'mini_magick'
 
 
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160818230706) do
+ActiveRecord::Schema.define(version: 20160830003608) do
 
   create_table "locations", force: :cascade do |t|
     t.integer  "trip_id"
@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(version: 20160818230706) do
     t.text     "blurb"
     t.decimal  "cost",               precision: 8, scale: 2, default: 0.0
     t.integer  "reccomends",                                 default: 0
+    t.string   "crop_data"
   end
 
   create_table "users", force: :cascade do |t|
