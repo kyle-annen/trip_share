@@ -11,7 +11,7 @@ class ZomatoController < ApplicationController
 			render json: @loc_details.location_details
 		elsif params[:api_type] == 'restaurant_details'
 			@res_details = Zomato.new
-			@res_details.get_restaurant_details(params[:res_id])
+			@res_details.get_restaurant(params[:res_id])
 			render json: @res_details
 		end
 	end
