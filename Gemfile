@@ -38,7 +38,7 @@ gem 'will_paginate'
 gem 'will_paginate-bootstrap'
 
 # React.js integration gem
-gem 'react-rails', github: 'reactjs/react-rails'
+gem 'react-rails', '1.6.2'
 gem 'react-bootstrap-rails' 
 gem 'jquery-ui-rails'
 gem 'jquery-turbolinks'
@@ -66,6 +66,11 @@ gem 'hash_dot'
 # Use minimagick to crop images
 
 gem 'mini_magick'
+
+# Use for datetime picker
+
+gem 'momentjs-rails', '>= 2.9.0'
+gem 'bootstrap3-datetimepicker-rails'
 
 
 
