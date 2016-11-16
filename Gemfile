@@ -72,6 +72,10 @@ gem 'mini_magick'
 gem 'momentjs-rails', '>= 2.9.0'
 gem 'bootstrap3-datetimepicker-rails'
 
+#yelp gem for accessing yelp api
+
+gem 'yelp', require: 'yelp'
+
 
 
 
