@@ -1,7 +1,6 @@
 var croppedImage;
 var cropdata = {};
 
- 
 $(document).ready(function() {
 	var tripImage = document.getElementById('trip-image-upload');
 	var previewImage = document.getElementById('trip-image-preview');
@@ -17,18 +16,13 @@ $(document).ready(function() {
 	      return;
 	  }
 
-
 		var fileReader = new FileReader();
-
 		fileReader.onload = function() {
-
 			previewImage.src = fileReader.result;
 			$('#trip-image-preview').toggleClass('hidden');
 			$('#crop-image-button').toggleClass('hidden');
 			$('#trip-image-reupload').toggleClass('hidden');
 			$('.btn-file').toggleClass('hidden');
-
-			
 		}
 
 		fileReader.readAsDataURL(file);
@@ -97,12 +91,4 @@ $(document).ready(function() {
 	    var dataImage = localStorage.getItem(imageName);
 	    img.src = "data:image/png;base64," + dataImage;
 	}
-
-
-
-
 });
-
-
-
-
