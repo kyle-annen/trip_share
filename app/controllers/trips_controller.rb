@@ -51,13 +51,17 @@ class TripsController < ApplicationController
   end
 
   def show
-    @trip = Trip.find(params[:id])
+    
+    @trip = Trip.find(params[:id]).as_json
     @trip_locations = Location.where(trip_id: params[:id]).as_json
 
     @trip_locations.each do |location|
       restaurants = Restaurant.where(location_id: location.id).as_json
       location[:restaurants] = restaurants.as_json
-    end
+    end 
+
+    #adds trip locations as an object instide trip
+    @trip[:trip_locations] = @trip_locations.as_json
 
     @new_location = Location.new
     @new_location.trip_id = @trip.id
