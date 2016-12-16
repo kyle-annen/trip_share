@@ -1,15 +1,5 @@
 var YelpSearch = React.createClass({
 
-	getInitialState: function() {
-		return {
-			search_term: "",
-			params: "",
-			result: ""
-		};
-	},
-
-
-
 	render: function() {
 		return(
 			<div>
@@ -24,7 +14,10 @@ var YelpSearch = React.createClass({
 					</span>
 				</div>
 
-				<div></div>
+				<div className="container-fluid">
+				
+
+				</div>
 			</div>
 		);
 	}

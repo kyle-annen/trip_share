@@ -1,6 +1,5 @@
 var YelpModal = React.createClass({
 
-
 	render: function() {
 		return(
       <div>
@@ -12,9 +11,9 @@ var YelpModal = React.createClass({
                 <h4 className="navbar-brand text-center">Out and About</h4>
               </div>
               <div className="modal-body">
-                <YelpSearch 
-                fetchYelpSearch={this.props.fetchYelpSearch} 
-                handleTyping={this.props.handleTyping}
+                <YelpSearch
+                handleTyping={this.props.handleTyping} 
+                result={this.props.result}
                 />
               </div>
               <div className="modal-footer">

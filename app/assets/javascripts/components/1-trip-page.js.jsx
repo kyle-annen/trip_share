@@ -29,7 +29,6 @@ var TripPage = React.createClass({
 
   fetchYelpSearch: function(search_term) {
     var search_url;
-    this.setState({searh_term: e.target.value});
     search_url = "/yelp?location=" + search_term;
     return $.getJSON(search_url, (function(_this) {
       return function(data) {
@@ -44,12 +43,12 @@ var TripPage = React.createClass({
     return setInterval(this.fetchTrip, 300);
   },
 
-  handleTyping: function(e) {
-    e.preventDefault();
-    this.props.fetchYelpSearch(e.target.value);
+  handleTyping: function(event) {
+    this.fetchYelpSearch(event.target.value);
   },
 
 	render: function() {
+
 		return(
       <div>
   			<div className="container-fluid margin-top">
@@ -68,10 +67,10 @@ var TripPage = React.createClass({
   				</div>
   			</div>
         <div className="yelp-output"></div>
-        
+        <h3>{yelpName}</h3>
         <YelpModal 
-        fetchYelpSearch={this.fetchYelpSearch} 
-        handleTyping={this.handleTyping}
+        handleTyping={this.handleTyping} 
+        result ={this.state.result}
         />
       </div>
 		);
