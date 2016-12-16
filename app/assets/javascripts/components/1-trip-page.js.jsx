@@ -2,13 +2,15 @@ var TripPage = React.createClass({
 
 	getInitialState: function() {
     return {
-      trip: this.props.data
+      trip: this.props.data,
+      result: []
     };
   },
 
   getDefaultProps: function() {
     return {
-      trip: []
+      trip: [],
+      result: []
     };
   },
 
@@ -25,22 +27,53 @@ var TripPage = React.createClass({
     })(this));
   },
 
+  fetchYelpSearch: function(search_term) {
+    var search_url;
+    this.setState({searh_term: e.target.value});
+    search_url = "/yelp?location=" + search_term;
+    return $.getJSON(search_url, (function(_this) {
+      return function(data) {
+        return _this.setState({
+          result: data
+        });
+      };
+    })(this));
+  },
+  
   componentWillMount: function() {
     return setInterval(this.fetchTrip, 300);
   },
 
+  handleTyping: function(e) {
+    e.preventDefault();
+    this.props.fetchYelpSearch(e.target.value);
+  },
+
 	render: function() {
 		return(
-			<div className="container-fluid margin-top">
-				<div className="row">
-					<div className="col-md-3 offset-md-1">
-						<img src={this.state.trip.image_url}></img>
-					</div>
-					<div className="col-md-3">
-						<h2>{this.state.trip.blurb}</h2>
-					</div>
-				</div>
-			</div>
+      <div>
+  			<div className="container-fluid margin-top">
+  				<div className="row">
+  					<div className="col-md-3 offset-md-1">
+  						<img src={this.state.trip.image_url}></img>
+  					</div>
+  					<div className="col-md-3">
+              <div className="row">
+  						  <h2>{this.state.trip.blurb}</h2>
+              </div>
+              <div className="row">
+                <div type="button" className="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Add Establishment</div>
+              </div>
+  					</div>
+  				</div>
+  			</div>
+        <div className="yelp-output"></div>
+        
+        <YelpModal 
+        fetchYelpSearch={this.fetchYelpSearch} 
+        handleTyping={this.handleTyping}
+        />
+      </div>
 		);
 	}
 });

@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :locations
   resources :restaurants
   resources :zomato
+  resources :yelp
   root to: 'static_pages#home'
 
 
