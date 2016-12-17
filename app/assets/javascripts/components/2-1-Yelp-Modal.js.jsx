@@ -3,7 +3,7 @@ var YelpModal = React.createClass({
 		return(
       <div>
         <div id="myModal" className="modal fade" role="dialog">
-          <div className="modal-dialog">
+          <div className="modal-dialog modal-lg">
             <div className="modal-content">
               <div className="modal-header">
                 <div type="button" className="close" data-dismiss="modal">&times;</div>

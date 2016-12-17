@@ -1,3 +1,37 @@
 // Place all the styles related to the yelp controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.results-container {
+	margin: 5px 0;
+}
+
+.yelp-result-row {
+	margin-top: 5px;
+	border-radius: 3px;
+	-webkit-box-shadow: 2px 2px 5px 0px rgba(50, 50, 50, 0.75);
+	-moz-box-shadow:    2px 2px 5px 0px rgba(50, 50, 50, 0.75);
+	box-shadow:         2px 2px 5px 0px rgba(50, 50, 50, 0.75);
+}
+
+.yelp-info-margin {
+	margin: 5px 0;
+}
+
+.bold {
+	font-weight: bold;
+}
+
+.address-line-height {
+	line-height: 5px;
+}
+
+.yelp-open {
+	font-weight: bold;
+	color: green;
+}
+
+.yelp-closed {
+	font-weight: bold;
+	color: red;
+}

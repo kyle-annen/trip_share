@@ -13,7 +13,7 @@ var YelpSearch = React.createClass({
 					</span>
 				</div>
 
-				<div className="container-fluid">
+				<div className="container-fluid results-container">
 					{this.props.result.businesses.map((business, index) => 
 						<YelpResultRow business={business} key={business.id} />
 					)}						
