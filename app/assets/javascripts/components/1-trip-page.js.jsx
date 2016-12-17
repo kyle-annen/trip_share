@@ -3,7 +3,7 @@ var TripPage = React.createClass({
 	getInitialState: function() {
     return {
       trip: this.props.data,
-      result: []
+      result: {businesses: []}
     };
   },
 
@@ -66,12 +66,7 @@ var TripPage = React.createClass({
   					</div>
   				</div>
   			</div>
-        <div className="yelp-output"></div>
-        <h3>{yelpName}</h3>
-        <YelpModal 
-        handleTyping={this.handleTyping} 
-        result ={this.state.result}
-        />
+        <YelpModal handleTyping={this.handleTyping} result ={this.state.result} />
       </div>
 		);
 	}

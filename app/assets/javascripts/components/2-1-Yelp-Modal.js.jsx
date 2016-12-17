@@ -1,5 +1,4 @@
 var YelpModal = React.createClass({
-
 	render: function() {
 		return(
       <div>
